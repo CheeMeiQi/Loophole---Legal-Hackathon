@@ -4,25 +4,25 @@
 // Users table (for all users include the lawyers and beneficiaries)
 //TODO: Do we need the registration dates?
 "CREATE TABLE users (
-    userid INT(11) AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(256) NOT NULL,
-    useremail VARCHAR(256) NOT NULL,
-    pwd VARCHAR(256) NOT NULL
+    userId INT(11) AUTO_INCREMENT PRIMARY KEY,
+    userName VARCHAR(256) NOT NULL,
+    userEmail VARCHAR(256) NOT NULL,
+    pwd VARCHAR(256) NOT NULL,
+    pwdChanged INT(11) NOT NULL
 )"
 
 // For lawyers
-//TODO: Still need to ask for volunteer experience?
 "CREATE TABLE lawyers (
-    id INT(11) AUTO_INCREMENT PRIMARY KEY,
-    userid INT(11) NOT NULL, 
+    userId INT(11) PRIMARY KEY NOT NULL, 
     firstName VARCHAR(256) NOT NULL,
     lastName VARCHAR(256) NOT NULL,
     gender VARCHAR(256) NOT NULL,
     firm VARCHAR(256) NOT NULL,
-    workNumber VARCHAR(256), //TODO: Is it okay to leave this as null?
+    workNumber VARCHAR(256),
     workEmail VARCHAR(256) NOT NULL,
-    profilPic VARBINARY(MAX),
+    profilePic VARBINARY(MAX),
     remainingCases INT(11) NOT NULL,
+    CONSTRAINT lawyers_FK FOREIGN KEY (userId) REFERENCES users(userId)
 )"
 
 //For beneficiaries
@@ -36,21 +36,33 @@
     age INT(11) NOT NULL, 
     gender VARCHAR(256) NOT NULL,
     brief VARCHAR(256) NOT NULL,
-    transcript ,//TODO: PRESHI - Determine type
-    profilPic VARBINARY(MAX),
+    phoneNum VARCHAR(256) NOT NULL,
+    email VARCHAR(256) NOT NULL,
+    transcript VARBINARY(MAX), //TODO: PRESHI - Determine type
+    profilePic VARBINARY(MAX),
     waitPeriod INT(11) NOT NULL,
+    court INT(11) NOT NULL,
+    abuse INT(11) NOT NULL,
+    urgencyScore INT(11) NOT NULL,
+    budget FLOAT NOT NULL,
     caseTaken INT(11) NOT NULL, 
-    latestRequest INT(11) NOT NULL,
-    remainingDays INT(11) NOT NULL,
-    lawyer INT(11) NOT NULL,
-    caseCompletedReq INT(11) NOT NULL,
-    caseCompletedConfirm INT(11) NOT NULL,
+    latestReqExpiry INT(11), //TODO: Datetime
+    reqLawyerId INT(11) NOT NULL, //TODO: Can have as -1 if no lawyer to currently request?
+    finalLawyerId INT(11) NOT NULL,
+    caseDoneReqExpiry INT(11) NOT NULL, //TODO: Datetime
+    caseDoneConfirm INT(11) NOT NULL,
+)"
+
+"CREATE TABLE rejections (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    beneficiaryId INT(11) NOT NULL,
+    lawyerId INT(11) NOT NULL
 )"
 
 // Practice areas table (We will track based on the userid, will be -1 by default and then updated to the lawyers' quotes)
-
+// TODO: Set defualt values
 "CREATE TABLE practiceAreas (
-    id FLOAT AUTO_INCREMENT PRIMARY KEY,
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
     userid FLOAT, 
     crimDefence FLOAT, 
     commCrime FLOAT, 
@@ -130,25 +142,59 @@
 // For firms
 //TODO: What other details do we need to track?
 "CREATE TABLE firms (
-    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    firmId INT(11) AUTO_INCREMENT PRIMARY KEY,
     firmName VARCHAR(256) NOT NULL,
 )"
 
 // For legal clinics
 "CREATE TABLE legalClinics (
-    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    clinicId INT(11) AUTO_INCREMENT PRIMARY KEY,
     clinicName VARCHAR(256) NOT NULL,
     firmName VARCHAR(256) NOT NULL,
 )"
+
+"CREATE TABLE registeredLawFirms (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    firmName VARCHAR(256) NOT NULL,
+    officialEmail VARCHAR(256) NOT NULL
+)"
+
+"CREATE TABLE registeredLegalClinics (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    clinicName VARCHAR(256) NOT NULL,
+    officialEmail VARCHAR(256) NOT NULL
+)"
+
 ?>
 
 <script>
 
+    // Bing's trigger function: This whole process (Step 1-9) has to be run everytime a beneficiary clicks 'Refer me a lawyer' and every few hours (6 hours) and when a new lawyer joins and when a lawyer rejects a case
+
     // We will run for each person
-    function match(beneficiaryId) {
-        <?php
-            $beneficiarySql = "SELECT "
-        ?>
+    function match() {
+        // Step 1: Sort beneficiaries according to urgency score (datetime diff + categories) (put in an array)
+        // Step 2: Create for loop to iterate through each beneficiary (run 'match' function for each beneficiary)
+        // Step 3: Run through all 34 columns of beneficiary to find out which areas they need help with (aka the value is 1)
+        // Step 4: Select command to select all the lawyers where the area of law != -1
+        // Step 5: Obtain all available lawyers (remainingCases > 0)
+        // Step 6: Obtain all the lawyers that rejected the user and remove them from the list of available lawyers
+        // Step 7: Find the sum of the relevant practice areas for each of the remaining lawyers
+        // Step 8: Create a variable to track the diff between the lawyer's "quote" and the beneficiary's budget. When the new diff (new diff must be strictly non-negative) is < than the old diff, swap the layer and update the variable.
+        // Step 9: Match! Remove beneficiary from the Step 1 array and update their latestReqExpiry date. -1 for remaingCases for lawyer.
+        // Step 10: If no match, apology pop-up and ask them to wait for a few hours. 
+
     }
+
+    // Bing to run a trigger function once a day for this as well
+    // Terminate account function
+    // So (if it is the expiry date and confirmation still 0) or (confirmation is 1), then delete profile from sql
+    // 
+
+    // Withdraw accounts function (for beneficiaries and lawyers)
+    // This function will be available if you are a lawyer have no cases or if you 
+
+    // Reject function (what happens when a lawyer rejects a beneficiary?)
+    // Lawyer's remainingCases increases by 1 and beneficiary gets thrown back into the algo
 
 </script>
