@@ -1,0 +1,49 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0px;
+  margin-top: 0px;
+  padding: 0px;
+}
+p {
+  display: inline;
+}
+
+#titleStyle {
+  background-image: url(image3.jpg);
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  /* position: absolute; */
+  width: 100%;
+  height: 400px;
+  color: white;
+  /* z-index: 1;
+  flex: 1; */
+}
+
+#problemStyle {
+  /* position: relative; */
+  width: 40%;
+  height: auto;
+  color: white;
+  background: #2d0320;
+  margin-top: 100px;
+  margin-left: 200px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  padding: 30px;
+  text-align: left;
+  display: inline-block;
+}
+
+/* #imageStyle{
+
+} */
+#solutionStyle {
+  color: black;
+  text-align: center;
+}
+
+#iconStyle {
+  display: inline-block;
+  font-size: 40px;
+}

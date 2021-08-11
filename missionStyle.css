@@ -1,0 +1,221 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0px;
+  margin-top: 0px;
+  padding: 0px;
+}
+p {
+  display: inline;
+}
+
+#titleStyle {
+  background-image: url(image3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  color: white;
+  z-index: 1;
+  flex: 1;
+}
+
+#container1 {
+  position: relative;
+  top: 263px;
+  width: 50%;
+  height: auto;
+  color: white;
+  background: #2d0320;
+  margin: 0px;
+  border-top-right-radius: 30px;
+  padding-top: 10px;
+  text-align: center;
+  float: bottom;
+  z-index: 2;
+}
+
+#button1 {
+  position: relative;
+  background-color: white; /* Green */
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  top: 5px;
+  color: #2d0320;
+  padding: 15px 32px;
+  text-align: center;
+  /* text-decoration: none; */
+  /* display: inline-block; */
+  font-size: 16px;
+  margin-bottom: 5px;
+  z-index: 3;
+}
+
+#button2 {
+  position: relative;
+  background-color: #2d0320; /* Green */
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  top: 5px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  /* text-decoration: none; */
+  /* display: inline-block; */
+  font-size: 16px;
+  z-index: 3;
+}
+
+#container2 {
+  position: relative;
+  top: 200px;
+  left: 700px;
+  width: 30%;
+  height: auto;
+  color: #2d0320;
+  background: #f0ccbc;
+  margin: 5px;
+  border-radius: 30px;
+  padding-top: 10px;
+  text-align: justify;
+  padding: 30px;
+  z-index: 2;
+}
+
+#image {
+  background-image: url(https://cdn.nohat.cc/thumb/f/720/dded204ae7bd4e56923f.jpg);
+  position: relative;
+  z-index: -1;
+  top: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: auto;
+  border-radius: 30px;
+}
+
+#container3 {
+  position: absolute;
+  width: 30%;
+  height: auto;
+  color: #2d0320;
+  background: #f0ccbc;
+  margin: 5px;
+  border-radius: 30px;
+  padding-top: 10px;
+  text-align: justify;
+  padding: 30px;
+}
+
+#container4 {
+  position: relative;
+  width: 40%;
+  height: auto;
+  color: #2d0320;
+  background: #f0ccbc;
+  margin-left: 300px;
+  border-radius: 30px;
+  padding-top: 10px;
+  text-align: justify;
+  padding: 30px;
+}
+
+#servicesStyle {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  color: white;
+  background: #2d0320;
+  margin-top: 50px;
+  padding-top: 10px;
+  text-align: left;
+  padding: 30px;
+}
+
+#inline {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 30% 30% 30%;
+}
+
+#service1 {
+  position: relative;
+  top: 150px;
+  width: 20%;
+  height: auto;
+  color: #2d0320;
+  background: #f0ccbc;
+  margin: 5px;
+  border-radius: 30px;
+  padding-top: 10px;
+  text-align: justify;
+  padding: 30px;
+}
+
+#service2 {
+  position: relative;
+  top: 150px;
+  /* left: 350px; */
+  width: 20%;
+  height: auto;
+  color: #2d0320;
+  background: #f0ccbc;
+  margin: 5px;
+  border-radius: 30px;
+  padding-top: 10px;
+  text-align: justify;
+  padding: 30px;
+}
+
+#service3 {
+  position: relative;
+  top: 150px;
+  /* left: 700px; */
+  width: 20%;
+  height: auto;
+  color: #2d0320;
+  background: #f0ccbc;
+  margin: 5px;
+  border-radius: 30px;
+  padding-top: 10px;
+  text-align: justify;
+  padding: 30px;
+  float: left;
+}
+
+#contactStyle {
+  /* position: right; */
+  width: 100%;
+  height: auto;
+  color: white;
+  background: #2d0320;
+  margin: 5px;
+  padding-top: 10px;
+  text-align: center;
+  padding: 30px;
+}
+
+#button3 {
+  background-color: #f0ccbc; /* Green */
+  border-radius: 30px;
+  color: #2d0320;
+  padding: 15px 32px;
+  text-align: center;
+  /* text-decoration: none; */
+  /* display: inline-block; */
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+#button4 {
+  background-color: #f0ccbc; /* Green */
+  border-radius: 30px;
+  color: #2d0320;
+  padding: 15px 32px;
+  text-align: center;
+  /* text-decoration: none; */
+  /* display: inline-block; */
+  font-size: 16px;
+  margin-bottom: 5px;
+}
