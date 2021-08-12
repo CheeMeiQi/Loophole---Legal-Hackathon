@@ -56,8 +56,8 @@
 
     <img
       id="image"
-      src="https://cdn.nohat.cc/thumb/f/720/dded204ae7bd4e56923f.jpg"
-      alt="businessman readinf contract"
+      src="image3.jpg"
+      alt="businessman reading contract"
     />
 
     <div id="image"></div>

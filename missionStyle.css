@@ -1,8 +1,15 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0px;
   margin-top: 0px;
   padding: 0px;
+  width: 100%;
 }
 p {
   display: inline;
@@ -37,7 +44,7 @@ p {
 
 #button1 {
   position: relative;
-  background-color: white; /* Green */
+  background-color: white;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   top: 5px;
@@ -53,7 +60,7 @@ p {
 
 #button2 {
   position: relative;
-  background-color: #2d0320; /* Green */
+  background-color: #2d0320;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   top: 5px;
@@ -69,12 +76,12 @@ p {
 #container2 {
   position: relative;
   top: 200px;
-  left: 700px;
+  left: 750px;
   width: 30%;
   height: auto;
   color: #2d0320;
   background: #f0ccbc;
-  margin: 5px;
+  /* margin: 5px; */
   border-radius: 30px;
   padding-top: 10px;
   text-align: justify;
@@ -83,7 +90,7 @@ p {
 }
 
 #image {
-  background-image: url(https://cdn.nohat.cc/thumb/f/720/dded204ae7bd4e56923f.jpg);
+  background-image: url(image3.jpg);
   position: relative;
   z-index: -1;
   top: 100px;
@@ -101,7 +108,7 @@ p {
   height: auto;
   color: #2d0320;
   background: #f0ccbc;
-  margin: 5px;
+  margin-left: 50px;
   border-radius: 30px;
   padding-top: 10px;
   text-align: justify;
@@ -114,7 +121,7 @@ p {
   height: auto;
   color: #2d0320;
   background: #f0ccbc;
-  margin-left: 300px;
+  margin-left: 400px;
   border-radius: 30px;
   padding-top: 10px;
   text-align: justify;
@@ -134,9 +141,14 @@ p {
 }
 
 #inline {
-  display: grid;
+  /* display: grid;
   width: 100%;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: 30% 30% 30%; */
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* margin-top: 50px; */
 }
 
 #service1 {
@@ -190,14 +202,14 @@ p {
   height: auto;
   color: white;
   background: #2d0320;
-  margin: 5px;
+  margin-top: 150px;
   padding-top: 10px;
   text-align: center;
   padding: 30px;
 }
 
 #button3 {
-  background-color: #f0ccbc; /* Green */
+  background-color: #f0ccbc;
   border-radius: 30px;
   color: #2d0320;
   padding: 15px 32px;
@@ -209,7 +221,7 @@ p {
 }
 
 #button4 {
-  background-color: #f0ccbc; /* Green */
+  background-color: #f0ccbc;
   border-radius: 30px;
   color: #2d0320;
   padding: 15px 32px;
