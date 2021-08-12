@@ -21,7 +21,7 @@
                 position: absolute;
                 width: 1703px;
                 height: 400px;
-                left: 300px;
+                left: 0px;
                 top: 0px;
                 background: url(includes/shakehand.png);
                 z-index: 1;
@@ -37,7 +37,7 @@
                 position: absolute;
                 width: 810px;
                 height: 99px;
-                left: 980px;
+                left: 580px;
                 top: 450px;
                 z-index: 2;
                 font-family: 'Montserrat', sans-serif;
@@ -46,7 +46,7 @@
                 position: absolute;
                 width: 310px;
                 height: 92px;
-                left: 1090px;
+                left: 690px;
                 top: 1000px;
                 z-index: 3;
                 font-family: 'Montserrat', sans-serif;
@@ -69,7 +69,7 @@
                 border-width: 10px;
                 border-color: #58A4B0;
                 height: 200px;
-                left: 730px;
+                left: 330px;
                 top: 570px;
                 z-index: 2;
                 background-color: #81BAC4;
@@ -82,7 +82,7 @@
                 border-width: 10px;
                 border-color: #58A4B0;
                 height: 200px;
-                left: 1048px;
+                left: 648px;
                 top: 570px;
                 z-index: 2;
                 background-color: #81BAC4;
@@ -95,7 +95,7 @@
                 border-width: 10px;
                 border-color: #58A4B0;
                 height: 200px;
-                left: 1366px;
+                left: 966px;
                 top: 570px;
                 z-index: 2;
                 background-color: #81BAC4;
@@ -109,7 +109,7 @@
                 position: absolute;
                 width: 246px;
                 height: 26px;
-                left: 745px;
+                left: 345px;
                 top: 620px;
                 font-family: 'Montserrat', sans-serif;
                 z-index: 2;
@@ -118,7 +118,7 @@
                 position: absolute;
                 width: 150px;
                 height: 26px;
-                left: 1085px;
+                left: 685px;
                 top: 615px;
                 font-family: 'Montserrat', sans-serif;
                 z-index: 2;
@@ -127,7 +127,7 @@
                 position: absolute;
                 width: 150px;
                 height: 26px;
-                left: 1396px;
+                left: 996px;
                 top: 615px;
                 font-family: 'Montserrat', sans-serif;
                 z-index: 2;
@@ -137,7 +137,7 @@
                 position: absolute;
                 width: 208px;
                 height: 46px;
-                left: 1050px;
+                left: 650px;
                 top: 850px;
                 z-index: 2;
                 background-color: #58A4B0;
@@ -163,7 +163,7 @@
                 position: absolute;
                 width: 900px;
                 height: 400px;
-                left: 702px;
+                left: 302px;
                 top: 1100px;
                 background: #FFFFFF;
                 border-radius: 50px 50px 0px 0px;
@@ -173,7 +173,7 @@
                 position: absolute;
                 width: 450px;
                 height: 400px;
-                left: 702px;
+                left: 302px;
                 top: 1100px;
                 background: url(includes/twosign.jpg);
                 border-radius: 50px 0px 0px 0px;
@@ -183,7 +183,7 @@
                 position: absolute;
                 width: 381px;
                 height: 370px;
-                left: 1190px;
+                left: 790px;
                 top: 1200px;
                 z-index: 5;
                 font-family: 'Montserrat', sans-serif;
@@ -192,8 +192,8 @@
                 position: absolute;
                 width: 208px;
                 height: 46px;
-                left: 930px;
-                top: 1400px;
+                left: 800px;
+                top: 1430px;
                 color: white;
                 background-color: #2D0320;
                 z-index: 5;
