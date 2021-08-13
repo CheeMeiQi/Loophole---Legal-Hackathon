@@ -177,13 +177,19 @@
     }
 
     for ($j = 0; $j < sizeof($finalMatches); $j++) {
-        $currDatetime = date('Y-m-d H:i:s');
-        $newDate->add(new DateInterval("P" . $finalMatches[2] . "D"));
+        $newDate = new DateTime();
+        $newDate->add(new DateInterval("P" . $finalMatches[$j][2] . "D"));
         $latestReq = $newDate->format('Y-m-d H:i:s');
-        // Updating the latestReqExpiry date (based on their wait period) and the reqLawyerId
-        $sendRequest = "UPDATE beneficiaries SET $reqLawyerId = $finalMatches[$j][1], $latestReqExpiry = $latestReq WHERE userId = $finalMatches[$j][0];";
+        
+        // Updating the firstReqExpiry date if it is still null
+        $updateFirstReqDate = "UPDATE beneficiaries SET reqLawyerId = $finalMatches[$j][1], latestReqExpiry = $latestReq, firstReqDate = $latestReq WHERE userId = $finalMatches[$j][0] AND firstReqDate = null;";
 
-        mysqli_query($conn, $updateAvail);
+        mysqli_query($conn, $updateFirstReqDate);
+
+        // Updating the latestReqExpiry date (based on their wait period) and the reqLawyerId
+        $sendRequest = "UPDATE beneficiaries SET reqLawyerId = $finalMatches[$j][1], latestReqExpiry = $latestReq WHERE userId = $finalMatches[$j][0];";
+
+        mysqli_query($conn, $sendRequest);
     }
 
     // Terminate account function

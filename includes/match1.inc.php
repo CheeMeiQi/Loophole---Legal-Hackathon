@@ -35,8 +35,14 @@
                         echo "currCourt = parseInt($currCourt);";
                         $currAbuse = $single['abuse'];
                         echo "currAbuse = parseInt($currAbuse);";
-                        //TODO: Clarify on the date component for the score
                         $currScore = $currCourt + (2 * $currAbuse);
+                        //TODO: Only calculating the total number of days waited right?
+                        $firstReqDate = $single['firstReqDate'];
+                        if ($firstReqDate != null) {
+                            $interval = date_diff(new DateTime(), $firstReqDate);
+                            $daysWaited = (int) $interval->format('%a');
+                            $currScore += $daysWaited;
+                        }
                         echo "tempArr = [$currB, $currScore];";
                         echo "bArr.push(tempArr);";
                     }
