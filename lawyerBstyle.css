@@ -23,11 +23,15 @@ body {
   padding-left: 5%;
 }
 
-#editButton {
-  background-color: #58a4b0;
-  color: white;
+#button {
+  background-color: #f0ccbc;
+  color: #2d0320;
   padding: 1%;
   border-radius: 10px;
+}
+
+#inlineStyle2 {
+  display: flex;
 }
 
 #account {
