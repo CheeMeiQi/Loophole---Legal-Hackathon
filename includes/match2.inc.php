@@ -201,7 +201,23 @@
 
     // Reject function (what happens when a lawyer rejects a beneficiary?)
     // Lawyer's remainingCases increases by 1 and beneficiary gets thrown back into the algo
+    function reject($bId) {
+        $reject = "UPDATE beneficiaries SET reqLawyerId = -1 WHERE userId = $bId;";
+        mysqli_query($conn, $reject);
+
+        //TODO: userid in this case refers to lawyer's userid bc we are assuming this will be done from his or her profile
+        //TODO: retrieve the remaining number of cases and + 1
+        $updateRemainingCases = "UPDATE lawyers SET remainingCases =  WHERE userId = $userid;";
+        mysqli_query($conn, $updateRemainingCases);
+    }
 
     // Accepting function (what happens when a lawyer accepts a beneficiary?)
+    function accept($bId) {
+        //TODO: userid in this case refers to lawyer's userid bc we are assuming this will be done from his or her profile
+        $accept = "UPDATE beneficiaries SET finalLawyerId = $userid WHERE userId = $bId;";
+        mysqli_query($conn, $accept);
+    }
+
+    // Registering accounts (beneficiaries and lawyers)
     ?>
 </html>
