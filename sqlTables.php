@@ -20,11 +20,11 @@
     firm VARCHAR(256) NOT NULL,
     workNum VARCHAR(256),
     workEmail VARCHAR(256) NOT NULL,
-    profilePic VARBINARY(MAX),
+    profilePic VARCHAR(256),
     remainingCases INT(11) NOT NULL,
     CONSTRAINT lawyers_FK FOREIGN KEY (userId) REFERENCES users(userId)
 )"
-
+//VARBINARY(MAX),
 //For beneficiaries
 //TODO: Need to still ask for income level, phone number and email? Also we need to run the algorithm once the first request is unsucessful right? Bc the 2nd option lawyer might be suddenly occupied
 //TODO: Also are we strictly only allowing them to go with their top match?
@@ -37,8 +37,8 @@
     brief VARCHAR(256) NOT NULL,
     phoneNum VARCHAR(256),
     email VARCHAR(256) NOT NULL,
-    transcript VARBINARY(MAX), //TODO: PRESHI - Determine type
-    profilePic VARBINARY(MAX),
+    transcript VARCHAR(256),
+    profilePic VARCHAR(256),
     waitPeriod INT(11) NOT NULL,
     court INT(11) NOT NULL,
     abuse INT(11) NOT NULL,
