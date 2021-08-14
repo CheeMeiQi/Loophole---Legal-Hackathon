@@ -130,7 +130,7 @@
                   oninput="update(this.value, 'personalEmail')"
                 />
               </div>
-            </div>
+            
 
             <h4>Brief</h4>
             <div id="brief">
