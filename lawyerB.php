@@ -38,7 +38,7 @@
         <!-- for is to pair with input id -->
         <!-- name is for javascript -->
         <!-- textarea is for a block of text -->
-        <form>
+        <form id="lawyerProfile" action="../includes/lawyerBProfile.php" method="POST">
           <div id="marginStyle">
             <h4>User Information</h4>
             <div id="userInfo">
@@ -48,7 +48,8 @@
                   type="text"
                   id="username"
                   name="username"
-                  placeholder="bing123"
+                  placeholder="username"
+                  oninput="update(this.value, 'username')"
                 />
               </div>
 
@@ -58,7 +59,8 @@
                   type="text"
                   id="firstName"
                   name="firstName"
-                  placeholder="Bing"
+                  placeholder="First Name"
+                  oninput="update(this.value, 'firstName')"
                 />
               </div>
 
@@ -68,16 +70,17 @@
                   type="text"
                   id="lastName"
                   name="lastName"
-                  placeholder="Bing"
+                  placeholder="Last Name"
+                  oninput="update(this.value, 'lastName')"
                 />
               </div>
 
               <label for="gender">Gender</label><br />
-              <input type="checkbox" id="gender" name="male" />
+              <input type="radio" id="gender" name="male" oninput="update('m', 'male')"/>
               <label for="male"> Male</label>
-              <input type="checkbox" id="gender" name="female" />
+              <input type="radio" id="gender" name="female" oninput="update('f', 'female')"/>
               <label for="female"> Female</label>
-              <input type="checkbox" id="gender" name="others" />
+              <input type="radio" id="gender" name="others" oninput="update('o', 'others')"/>
               <label for="others"> Others</label>
             </div>
 
@@ -90,6 +93,7 @@
                   id="CoName"
                   name="CoName"
                   placeholder="Enter company name"
+                  oninput="update(this.value, 'CoName')"
                 />
               </div>
 
@@ -100,6 +104,7 @@
                   id="workNo"
                   name="workNo"
                   placeholder="Exclude country code"
+                  oninput="update(this.value, 'workNo')"
                 />
               </div>
 
@@ -110,6 +115,7 @@
                   id="workEmail"
                   name="workEmail"
                   placeholder="bing@example.com"
+                  oninput="update(this.value, 'workEmail')"
                 />
               </div>
             </div>
@@ -118,11 +124,11 @@
             <div id="availability">
               <label for="avail">Maximum number of cases you can take on:</label
               ><br />
-              <select name="avail" id="avail">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+              <select name="avail" id="avail" oninput="update(this.value, 'avail')">
+                <option value="1" >1</option>
+                <option value="2" >2</option>
+                <option value="3" >3</option>
+                <option value="4" >4</option>
               </select>
             </div>
           </div>
@@ -147,7 +153,20 @@
                 ><br /><br />
               </div>
               <!-- //////////////// -->
-
+              <script>
+                var pracArea = [];
+                var jsPracArea = document.createElement("input");
+                jsPracArea.type = "hidden";
+                jsPracArea.value = pracArea;
+                jsPracArea.name = "jsPracArea";
+                ele.appendChild(jsPracArea);
+                for (let i=0; i<34; i++){
+                  pracArea.push(-1);
+                }
+                function updatePracArea(index, price){
+                  pracArea[index] = price;
+                }
+              </script>
               <br />
               <strong>Criminal Law</strong>
               <div id="inlineStyle">
@@ -155,6 +174,7 @@
                   type="checkbox"
                   id="practiceArea"
                   name="Criminal Defence"
+              
                 />
                 <label for="Criminal Defence"> Criminal Defence</label
                 ><br /><br />
@@ -165,6 +185,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(0, this.value)"
                 />
               </div>
               <hr />
@@ -186,6 +207,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(1, this.value)"
                 />
               </div>
               <hr />
@@ -207,6 +229,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(2, this.value)"
                 />
               </div>
               <hr />
@@ -222,6 +245,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(3, this.value)"
                 />
               </div>
               <hr />
@@ -243,6 +267,7 @@
                   id="fee"
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
+                  oninput="updatePracArea(4, this.value)"
                   size="30"
                 />
               </div>
@@ -261,6 +286,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(5, this.value)"
                 />
               </div>
               <hr />
@@ -282,6 +308,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(6, this.value)"
                 />
               </div>
               <hr />
@@ -303,6 +330,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(7, this.value)"
                 />
               </div>
               <hr />
@@ -323,6 +351,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(8, this.value)"
                 />
               </div>
               <hr />
@@ -343,6 +372,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(9, this.value)"
                 />
               </div>
               <hr />
@@ -357,6 +387,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(10, this.value)"
                 />
               </div>
               <hr />
@@ -380,6 +411,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(11, this.value)"
                 />
               </div>
               <hr />
@@ -400,6 +432,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(12, this.value)"
                 />
               </div>
               <hr />
@@ -414,6 +447,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(13, this.value)"
                 />
               </div>
               <hr />
@@ -434,6 +468,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(14, this.value)"
                 />
               </div>
               <hr />
@@ -455,6 +490,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(15, this.value)"
                 />
               </div>
               <hr />
@@ -470,6 +506,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(16, this.value)"
                 />
               </div>
               <hr />
@@ -493,6 +530,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(17, this.value)"
                 />
               </div>
               <hr />
@@ -508,6 +546,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(18, this.value)"
                 />
               </div>
               <hr />
@@ -529,6 +568,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(19, this.value)"
                 />
               </div>
               <hr />
@@ -544,6 +584,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(20, this.value)"
                 />
               </div>
               <hr />
@@ -565,6 +606,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(21, this.value)"
                 />
               </div>
               <hr />
@@ -585,6 +627,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(22, this.value)"
                 />
               </div>
               <hr />
@@ -602,6 +645,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(23, this.value)"
                 />
               </div>
               <hr />
@@ -622,6 +666,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(24, this.value)"
                 />
               </div>
               <hr />
@@ -642,6 +687,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(25, this.value)"
                 />
               </div>
               <hr />
@@ -662,6 +708,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(26, this.value)"
                 />
               </div>
               <hr />
@@ -683,6 +730,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(27, this.value)"
                 />
               </div>
               <hr />
@@ -703,6 +751,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(28, this.value)"
                 />
               </div>
               <hr />
@@ -718,6 +767,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(29, this.value)"
                 />
               </div>
               <hr />
@@ -735,6 +785,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(30, this.value)"
                 />
               </div>
               <hr />
@@ -750,6 +801,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(31, this.value)"
                 />
               </div>
               <hr />
@@ -771,6 +823,7 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(32, this.value)"
                 />
               </div>
               <hr />
@@ -791,11 +844,90 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
+                  oninput="updatePracArea(33, this.value)"
                 />
               </div>
               <hr />
             </div>
           </div>
+          <script>
+            let username=document.getElementById('username');
+            let firstName=document.getElementById('firstName');
+            let lastName=document.getElementById('lastName');
+            let gender=document.getElementById('gender');
+            let CoName=document.getElementById('CoName');
+            let workNo=document.getElementById('workNo');
+            let workEmail=document.getElementById('workEmail');
+            let avail=document.getElementById('avail');
+            
+            var ele = document.getElementById("lawyerProfile");
+            function update(val, type){
+              if (type=='username'){
+                username=val;
+                var jsUsername = document.createElement("input");
+                jsUsername.type = "hidden";
+                jsUsername.value = username;
+                jsUsername.name = "jsUsername";
+                ele.appendChild(jsUsername);
+              }
+              else if (type=='firstName'){
+                firstName=val;
+                var jsFirstName = document.createElement("input");
+                jsFirstName.type = "hidden";
+                jsFirstName.value = firstName;
+                jsFirstName.name = "jsFirstName";
+                ele.appendChild(jsFirstName);
+              }
+              else if (type=='lastName'){
+                lastName=val;
+                var jsLastName = document.createElement("input");
+                jsLastName.type = "hidden";
+                jsLastName.value = lastName;
+                jsLastName.name = "jsLastName";
+                ele.appendChild(jsLastName);
+              }
+              else if (type=='gender'){
+                gender=val;
+                var jsGender = document.createElement("input");
+                jsGender.type = "hidden";
+                jsGender.value = gender;
+                jsGender.name = "jsGender";
+                ele.appendChild(jsGender);
+              }
+              else if (type=='CoName'){
+                CoName=val;
+                var jsCoName = document.createElement("input");
+                jsCoName.type = "hidden";
+                jsCoName.value = CoName;
+                jsCoName.name = "jsCoName";
+                ele.appendChild(jsCoName);
+              }
+              else if (type=='workNo'){
+                workNo=val;
+                var jsWorkNo = document.createElement("input");
+                jsWorkNo.type = "hidden";
+                jsWorkNo.value = workNo;
+                jsWorkNo.name = "jsWorkNo";
+                ele.appendChild(jsWorkNo);
+              }
+              else if (type=='workEmail'){
+                workEmail=val;
+                var jsWorkEmail = document.createElement("input");
+                jsWorkEmail.type = "hidden";
+                jsWorkEmail.value = workEmail;
+                jsWorkEmail.name = "jsWorkEmail";
+                ele.appendChild(jsWorkEmail);
+              }
+              else if (type=='avail'){
+                avail=val;
+                var jsAvail = document.createElement("input");
+                jsAvail.type = "hidden";
+                jsAvail.value = avail;
+                jsAvail.name = "jsAvail";
+                ele.appendChild(jsAvail);
+              }
+            }
+          </script>
         </form>
       </div>
     </div>

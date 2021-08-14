@@ -12,6 +12,7 @@
 //pwdChanged INT(11) NOT NULL //TODO: Why is this here? Need?
 
 // For lawyers
+// Need to track firm id?
 "CREATE TABLE lawyers (
     userId INT(11) PRIMARY KEY NOT NULL, 
     firstName VARCHAR(256) NOT NULL,
@@ -26,6 +27,7 @@
 )"
 //VARBINARY(MAX),
 //For beneficiaries
+// Need to click beneficiary id
 //TODO: Need to still ask for income level, phone number and email? Also we need to run the algorithm once the first request is unsucessful right? Bc the 2nd option lawyer might be suddenly occupied
 //TODO: Also are we strictly only allowing them to go with their top match?
 "CREATE TABLE beneficiaries (

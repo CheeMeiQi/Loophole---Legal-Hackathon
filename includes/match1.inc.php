@@ -10,10 +10,14 @@
 <html>
 <form action="includes/match2.inc.php" method="POST" id="ele">
 <script>
+    <?php
+        echo 'match();';
+    ?>
     // Bing's trigger function: This whole process (Step 1-9) has to be run everytime a beneficiary clicks 'Refer me a lawyer' and every few hours (6 hours) and when a new lawyer joins and when a lawyer rejects a case
 
     // We will run for each person
     function match() {
+         console.log("i make it to match"); //TEST
         // Step 1: Sort beneficiaries according to urgency score (datetime diff + categories) (put in an array)
         let currB, currCourt, currAbuse, currScore, tempArr, bArr;
         <?php
