@@ -17,7 +17,7 @@
 
     // We will run for each person
     function match() {
-         console.log("i make it to match"); //TEST
+         console.log("I make it to match"); //TEST
         // Step 1: Sort beneficiaries according to urgency score (datetime diff + categories) (put in an array)
         let currB, currCourt, currAbuse, currScore, tempArr, bArr;
         <?php
