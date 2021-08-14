@@ -38,7 +38,7 @@
         <!-- for is to pair with input id -->
         <!-- name is for javascript -->
         <!-- textarea is for a block of text -->
-        <form id="lawyerProfile" action="" method="POST">
+        <form id="lawyerProfile" action="../includes/lawyerBProfile.php" method="POST">
           <div id="marginStyle">
             <h4>User Information</h4>
             <div id="userInfo">
