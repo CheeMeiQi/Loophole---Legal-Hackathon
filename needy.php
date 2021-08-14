@@ -552,7 +552,8 @@
             let personalNo=document.getElementById('personalNo');
             let personalEmail=document.getElementById('personalEmail');
             let wait=document.getElementById('wait');
-            let court=document.getElementById('court'); let abuse=document.getElementById('abuse');
+            let court;
+            let abuse;
             
             function update(val, type){
               if (type=='username'){
