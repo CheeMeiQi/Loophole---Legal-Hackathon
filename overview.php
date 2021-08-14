@@ -19,7 +19,7 @@
 
   <body>
     <div id="titleStyle">
-      <h1>Insert brand name</h1>
+      <h1>LegalMatch</h1>
     </div>
 
     <div id="problemStyle">
