@@ -5,17 +5,19 @@
     $db='loophole';
     $conn = mysqli_connect('localhost', $user, $pass, $db);
     date_default_timezone_set("Singapore");
-    echo "match();";
 ?>
 <!DOCTYPE html>
 <html>
 <form action="includes/match2.inc.php" method="POST" id="ele">
 <script>
+    <?php
+        echo 'match();';
+    ?>
     // Bing's trigger function: This whole process (Step 1-9) has to be run everytime a beneficiary clicks 'Refer me a lawyer' and every few hours (6 hours) and when a new lawyer joins and when a lawyer rejects a case
 
     // We will run for each person
     function match() {
-        echo ("i make it to match"); //TEST
+         console.log("I make it to match"); //TEST
         // Step 1: Sort beneficiaries according to urgency score (datetime diff + categories) (put in an array)
         let currB, currCourt, currAbuse, currScore, tempArr, bArr;
         <?php

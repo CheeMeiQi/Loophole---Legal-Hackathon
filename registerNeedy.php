@@ -135,6 +135,7 @@
         <h1 class="fillblank">Individual Registration</h1>
             <div id="container">
                 <h2 class="title">Register for an account</h2>
+                <input type="username" name="username" id="email" placeholder="Username">
                 <input type="text" name="email" id="email" placeholder="Email">
                 <input type="password" name="pwd" id="pwd" placeholder="Password">    
                 <input type="password" name="cfm_pwd" id="cfm_pwd" placeholder="Re-type password">       

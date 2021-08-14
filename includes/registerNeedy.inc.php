@@ -11,6 +11,11 @@
         require_once 'dbh.inc.php';
         require_once 'functions.inc.php';
 
+        
+        $insertSql = "INSERT INTO users(userName, userEmail, pwd) VALUES ($name, $email, $pwd);";
+        mysqli_query($conn, $insertSql);
+    
+
         /*----------------------------Errorhandling----------------------------*/
 
         //error handling for empty fields
