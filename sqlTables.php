@@ -59,12 +59,14 @@
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     beneficiaryId INT(11) NOT NULL,
     lawyerId INT(11) NOT NULL,
+    CONSTRAINT beneficiaries_FK1 FOREIGN KEY (beneficiaryId) REFERENCES users(userId),
+    CONSTRAINT lawyers_FK1 FOREIGN KEY (lawyerId) REFERENCES users(userId)
 )"
 
 // Practice areas table (We will track based on the userid, will be -1 by default and then updated to the lawyers' quotes)
 // TODO: Set defualt values
 "CREATE TABLE practiceAreas (
-    userId INT(11) NOT NULL, 
+    userId INT(11) NOT NULL PRIMARY KEY, 
     crimDefence FLOAT, 
     commCrime FLOAT,
     magComplaint FLOAT, 
@@ -105,7 +107,7 @@
 //TODO: Also what if laypersons do not know their areas very well and choose wrongly?
 // Will be 0 by default and updated to 1 if they need help
 "CREATE TABLE helpAreas (
-    userId INT(11) NOT NULL, 
+    userId INT(11) NOT NULL PRIMARY KEY, 
     crimDefence INT(11), 
     commCrime INT(11), 
     magCompliant INT(11),
