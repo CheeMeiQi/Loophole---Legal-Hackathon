@@ -114,7 +114,7 @@
                     <button type="submit" name="save" id="registerbtn" onclick="checkFile();">Register lawyers now</button>
                 </form>
                 <h4 class="question">Please insert a .csv file with the following format, which can be downloaded from the download button below.</h4>
-                <a href="LIThack.csv" download="registration.csv">
+                <a href="registration_firm-name.csv" download="registration_firm-name.csv">
                     <button class="btn" style="background-color=white;border-radius=5px;border-width=2px;width:50px;height:30px;"><i class="fa fa-download fa-2x" aria-hidden="true"></i></button>
                 </a>
             </div>
