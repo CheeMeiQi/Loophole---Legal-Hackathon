@@ -36,7 +36,7 @@
         <!-- for is to pair with input id -->
         <!-- name is for javascript -->
         <!-- textarea is for a block of text -->
-        <form>
+        <form id="needyProfile" action="../includes/needyProfile.php" method="POST">
           <div id="marginStyle">
             <h4>User Information</h4>
             <div id="userInfo">
@@ -46,7 +46,8 @@
                   type="text"
                   id="username"
                   name="username"
-                  placeholder="bing123"
+                  placeholder="username"
+                  oninput="update(this.value, 'username')"
                 />
               </div>
 
@@ -56,7 +57,8 @@
                   type="text"
                   id="firstName"
                   name="firstName"
-                  placeholder="Bing"
+                  placeholder="First Name"
+                  oninput="update(this.value, 'firstName')"
                 />
               </div>
 
@@ -66,16 +68,17 @@
                   type="text"
                   id="lastName"
                   name="lastName"
-                  placeholder="Bing"
+                  placeholder="Last Name"
+                  oninput="update(this.value, 'lastName')"
                 />
               </div>
 
               <label for="gender">Gender</label><br />
-              <input type="checkbox" id="gender" name="male" />
+              <input type="radio" id="gender" name="male" oninput="update('m', 'gender')"/>
               <label for="male"> Male</label>
-              <input type="checkbox" id="gender" name="female" />
+              <input type="radio" id="gender" name="female" />
               <label for="female"> Female</label>
-              <input type="checkbox" id="gender" name="others" />
+              <input type="radio" id="gender" name="others" />
               <label for="others"> Others</label>
             </div>
 
