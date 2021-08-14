@@ -246,13 +246,13 @@
         function login(){ //for circle 3
             document.getElementById("circle1").style.backgroundColor = "#58A4B0";
             // document.getElementById("circle1").style.transitionDelay = "1s";
-            window.location.href = "./login.php";
+            window.location.href = "login.php";
         }
         function overview(){
-            window.location.href="../overview.php"
+            window.location.href="overview.php"
         }
         function mission(){
-            window.location.href="../mission.php"
+            window.location.href="mission.php"
         }
     </script>
 
