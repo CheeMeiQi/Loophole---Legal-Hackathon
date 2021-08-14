@@ -60,7 +60,7 @@
 
         let finalBArr = document.createElement("input");
         finalBArr.type = "hidden";
-        finalBArr.value = bArr;
+        finalBArr.value = JSON.stringify(bArr);
         finalBArr.name = "finalBArr";
         ele.appendChild(finalBArr);
 

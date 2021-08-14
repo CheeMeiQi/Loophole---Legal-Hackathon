@@ -20,7 +20,7 @@
         }
     }
 
-    $bArr = $_POST["finalBArr"];
+    $bArr = json_decode($_POST["finalBArr"]);
     $currHelpAreas = array(); // Array of 1s and 0s
     $convertedHelpAreas = array(); // Converted array to compare with lawyers' 'quotes'
     $catalogue = ["crimDefence", "commCrime", "magComplaint", "cyberCrime", "harassment", "divorce", "syariahDivorce", "divorceInEng", "preNuptial", "personalProt", "adoption", "lpa", "probate", "wills", "muslimWills", "mentalCap", "trusts", "deedPolls", "notary", "iou", "bankruptcy", "commissioner", "powAttorney", "debtRecovery", "emplyDisputes", "medNeglce", "civilLit", "copyright", "personalInjury", "defamation", "mcst", "conveyancing", "landlord", "renovation"];
@@ -380,22 +380,26 @@
 
         // Supposed to upload the transcript
         // URL: https://www.youtube.com/watch?v=3OUTgnaezNY
-        $transcript = rand(1000, 10000) . "-" . $_FILES["file"]["name"];
-        $tName = $_FILES["files"]["tmp_name"];
-        $uplodesDir = '../transcripts';
-        move_uploaded_file($tName, $uplodesDir."/".$transcript);
+        // $transcript = rand(1000, 10000) . "-" . $_FILES["file"]["name"];
+        // $tName = $_FILES["files"]["tmp_name"];
+        // $uplodesDir = '../transcripts';
+        // move_uploaded_file($tName, $uplodesDir."/".$transcript);
 
-        $profilePicName = rand(1000, 10000). "-" . $_FILES['profilePic']['name'];
-        $target = '../images/' . $profilePicName;
-        if (move_uploaded_file($_FILES['profilePic']['tmp_name'], $target)) {
+        // $profilePicName = rand(1000, 10000). "-" . $_FILES['profilePic']['name'];
+        // $target = '../images/' . $profilePicName;
+        // if (move_uploaded_file($_FILES['profilePic']['tmp_name'], $target)) {
 
-        } else {
+        // } else {
             
-        }
+        // }
 
-        $bInsert = "INSERT INTO beneficiaries(firstName, lastName, age, gender, brief, phoneNum, email, transcript, profilePic, waitPeriod, court, abuse, budget, reqLawyerId, finalLawyerId, caseDoneConfirm) VALUES ($firstName, $lastName, $age, $gender, $brief, $phoneNum, $email, '$transcript', '$profilePicName', $waitPeriod, $court, $abuse, $budget, -1, -1, 0);";
+        //$bInsert = "INSERT INTO beneficiaries(userId, firstName, lastName, age, gender, brief, phoneNum, email, transcript, profilePic, waitPeriod, court, abuse, budget, reqLawyerId, finalLawyerId, caseDoneConfirm) VALUES (-5, '$firstName', '$lastName', $age, '$gender', '$brief', $phoneNum, '$email', '$transcript', '$profilePicName', $waitPeriod, $court, $abuse, $budget, -1, -1, 0);";
 
-        $helpAreasInsert = "INSERT INTO helpAreas(crimDefence, commCrime, magComplaint, cyberCrime, harassment, divorce, syariahDivorce, divorceInEng, preNuptial, personalProt, adoption, lpa, probate, wills, muslimWills, mentalCap, trusts, deedPolls, notary, iou, bankruptcy, commissioner, powAttorney, debtRecovery, emplyDisputes, medNeglce, civilLit, copyright, personalInjury, defamation, mcst, conveyancing, landlord, renovation) VALUES ($areasArr[0], $areasArr[1], $areasArr[2], $areasArr[3], $areasArr[4], $areasArr[5], $areasArr[6], $areasArr[7], $areasArr[8], $areasArr[9], $areasArr[10], $areasArr[11], $areasArr[12], $areasArr[13], $areasArr[14], $areasArr[15], $areasArr[16], $areasArr[17], $areasArr[18], $areasArr[19], $areasArr[20], $areasArr[21], $areasArr[22], $areasArr[23], $areasArr[24], $areasArr[25], $areasArr[26], $areasArr[27], $areasArr[28], $areasArr[29], $areasArr[30], $areasArr[31], $areasArr[32], $areasArr[33]);";
+        $bInsert = "INSERT INTO beneficiaries(userId, firstName, lastName, age, gender, brief, phoneNum, email, waitPeriod, court, abuse, budget, firstReqDate, latestReqExpiry, reqLawyerId, finalLawyerId, caseDoneReqExpiry, caseDoneConfirm) VALUES (-5, '$firstName', '$lastName', $age, '$gender', '$brief', $phoneNum, '$email', $waitPeriod, $court, $abuse, $budget, null, null, -1, -1, null, 0);";
+
+        $helpAreasInsert = "INSERT INTO helpAreas(userId, crimDefence, commCrime, magComplaint, cyberCrime, harassment, divorce, syariahDivorce, divorceInEng, preNuptial, personalProt, adoption, lpa, probate, wills, muslimWills, mentalCap, trusts, deedPolls, notary, iou, bankruptcy, commissioner, powAttorney, debtRecovery, emplyDisputes, medNeglce, civilLit, copyright, personalInjury, defamation, mcst, conveyancing, landlord, renovation) VALUES (-5, $areasArr[0], $areasArr[1], $areasArr[2], $areasArr[3], $areasArr[4], $areasArr[5], $areasArr[6], $areasArr[7], $areasArr[8], $areasArr[9], $areasArr[10], $areasArr[11], $areasArr[12], $areasArr[13], $areasArr[14], $areasArr[15], $areasArr[16], $areasArr[17], $areasArr[18], $areasArr[19], $areasArr[20], $areasArr[21], $areasArr[22], $areasArr[23], $areasArr[24], $areasArr[25], $areasArr[26], $areasArr[27], $areasArr[28], $areasArr[29], $areasArr[30], $areasArr[31], $areasArr[32], $areasArr[33]);";
+
+        // $helpAreasInsert = "INSERT INTO helpAreas(crimDefence, commCrime, magComplaint, cyberCrime, harassment, divorce, syariahDivorce, divorceInEng, preNuptial, personalProt, adoption, lpa, probate, wills, muslimWills, mentalCap, trusts, deedPolls, notary, iou, bankruptcy, commissioner, powAttorney, debtRecovery, emplyDisputes, medNeglce, civilLit, copyright, personalInjury, defamation, mcst, conveyancing, landlord, renovation) VALUES ($areasArr[0], $areasArr[1], $areasArr[2], $areasArr[3], $areasArr[4], $areasArr[5], $areasArr[6], $areasArr[7], $areasArr[8], $areasArr[9], $areasArr[10], $areasArr[11], $areasArr[12], $areasArr[13], $areasArr[14], $areasArr[15], $areasArr[16], $areasArr[17], $areasArr[18], $areasArr[19], $areasArr[20], $areasArr[21], $areasArr[22], $areasArr[23], $areasArr[24], $areasArr[25], $areasArr[26], $areasArr[27], $areasArr[28], $areasArr[29], $areasArr[30], $areasArr[31], $areasArr[32], $areasArr[33]);";
 
         mysqli_query($conn, $bInsert);
         mysqli_query($conn, $helpAreasInsert);
