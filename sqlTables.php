@@ -7,9 +7,9 @@
     userId INT(11) AUTO_INCREMENT PRIMARY KEY,
     userName VARCHAR(256) NOT NULL,
     userEmail VARCHAR(256) NOT NULL,
-    pwd VARCHAR(256) NOT NULL,
-    pwdChanged INT(11) NOT NULL
+    pwd VARCHAR(256) NOT NULL
 )"
+//pwdChanged INT(11) NOT NULL //TODO: Why is this here? Need?
 
 // For lawyers
 "CREATE TABLE lawyers (
@@ -144,16 +144,17 @@
 
 // For firms
 //TODO: What other details do we need to track?
-"CREATE TABLE firms (
+"CREATE TABLE lawFirms (
     firmId INT(11) AUTO_INCREMENT PRIMARY KEY,
     firmName VARCHAR(256) NOT NULL,
+    officialEmail VARCHAR(256) NOT NULL
 )"
 
 // For legal clinics
 "CREATE TABLE legalClinics (
     clinicId INT(11) AUTO_INCREMENT PRIMARY KEY,
     clinicName VARCHAR(256) NOT NULL,
-    firmName VARCHAR(256) NOT NULL
+    officialEmail VARCHAR(256) NOT NULL
 )"
 
 "CREATE TABLE registeredLawFirms (

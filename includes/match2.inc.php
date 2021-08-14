@@ -308,6 +308,70 @@
         mysqli_query($conn, $accept);
     }
 
-    // Registering accounts (beneficiaries and lawyers)
+    // Registering accounts (beneficiaries, legal clinics and law firms)
+    function registerBeneficiary() {
+        $insertSql = "INSERT INTO users(userName, userEmail, pwd) VALUES ($userName, $userEmail, $pwd);";
+        mysqli_query($conn, $insertSql);
+    }
+    
+    function registerLegalClinic() {
+        $verification = "SELECT * FROM registeredLegalClinics WHERE clinicName = $clinicName;";
+        $details = mysqli_query($conn, $verification);
+
+        if ($details) {
+            $resultCheck = mysqli_num_rows($details);
+            $data = array();
+
+            if ($resultCheck > 0) {
+                echo 'console.log("This is a registered legal clinic.");';
+                while ($row = mysqli_fetch_assoc($details)) {
+                    $data[] = $row;   
+                }
+                foreach($data as $single) {
+                    $officialEmail = $single["officialEmail"];
+
+                    $register = "INSERT INTO legalClinics(clinicName, officialEmail) VALUE ($clinicName, $clinicEmail);";
+
+                    mysqli_query($conn, $register);
+                }
+            } else {
+                echo 'console.log("Sorry, we are currently unable to verify you as a registered legal clinic in Singapore. Kindly email us at _____ to to register your legal clinic with us. Thank you.");';
+            }
+        }
+    }
+
+    function registerLawFirm() {
+        $verification = "SELECT * FROM registeredLawFirms WHERE firmName = $clinicName;";
+        $details = mysqli_query($conn, $verification);
+
+        if ($details) {
+            $resultCheck = mysqli_num_rows($details);
+            $data = array();
+
+            if ($resultCheck > 0) {
+                echo 'console.log("This is a registered law firm.");';
+                while ($row = mysqli_fetch_assoc($details)) {
+                    $data[] = $row;   
+                }
+                foreach($data as $single) {
+                    $officialEmail = $single["officialEmail"];
+
+                    $register = "INSERT INTO lawFirms(firmName, officialEmail) VALUE ($firmName, $firmEmail);";
+
+                    mysqli_query($conn, $register);
+                }
+            } else {
+                echo 'console.log("Sorry, we are currently unable to verify you as a registered law firm in Singapore. Kindly email us at _____ to to register your law firm with us. Thank you.");';
+            }
+        }
+    }
+
+    function registerLawyers() {
+        //TODO: Not too sure about the exact manipulation bc we are doing it based on an excel sheet
+        $insertSql = "INSERT INTO users(userName, userEmail, pwd) VALUES ($userName, $userEmail, $pwd);";
+        mysqli_query($conn, $insertSql);
+    }
+
+    // Setting up profiles (beneficiaries and lawyers)
     ?>
 </html>
