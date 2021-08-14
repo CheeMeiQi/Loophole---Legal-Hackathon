@@ -1,15 +1,17 @@
+<?php 
+    include 'file-upload-download/filesLogic.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <title>Registration for firms</title>
         <!--For normal montserrat-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
-            /*style stuff*/ 
-            /*Use this for semi-bolded font --> font-family: 'Montserrat', sans-serif;*/ 
-            .title{
+             .title{
                 color: white;
                 font-family: 'Montserrat', sans-serif;
             }
@@ -33,32 +35,13 @@
                 border-radius: 20px;
                 transform: rotate(18.78deg);
             }
-            #email{
+            #fileSelect{
                 font-family: 'Montserrat', sans-serif;
-                font-size: 18px;
-                color: black;
-                background-color: #81BAC4;
-                border-style: solid;
-                border-color: white;
-                border-width: 2px;
-                border-radius:5px;
-                width: 400px;
-                height: 50px;
-            }
-            #pwd{
-                font-family: 'Montserrat', sans-serif;
-                font-size: 18px;
-                color: black;
-                background-color: #81BAC4;
-                border-style: solid;
-                border-color: white;
-                border-width: 2px;
                 border-radius: 5px;
-                width: 400px;
-                height: 50px;
-                margin-top: 10px;
+                border-color: black;
+                border-width: 2px;
             }
-            #loginbtn{
+            #registerbtn{
                 font-family: 'Montserrat', sans-serif;
                 font-size: 18px;
                 font-weight: 10px;
@@ -71,9 +54,9 @@
                 width: 150px;
                 height: 50px;
                 margin-top: 10px;
-                margin-left: 120px;
+                margin-left: 80px;
             }
-            #email:hover, #pwd:hover, #loginbtn:hover {
+            #registerbtn:hover {
                 background-color: #abf2ff;
             }
             .question{
@@ -110,36 +93,31 @@
 
     <body style="background-color=white;">
     <script>
-        function main() {
-            window.location.href="../landing.php";
+        function checkFile() {
+            if (document.getElementById("fileSelect").value == "") {
+                window.alert("Please submit an acceptable file type in the file upload field following the instructions below!");
+                window.location.href="../registerLawyer.php"
+            }
+        }
+        function main(){
+            window.location.href="../landing.php"
         }
     </script>
         <div id="triangleright1"></div>
         <div id = "triangleright2"></div>
-        <form action="includes/login.inc.php" method="POST">
-        <h1 class="fillblank">Login to access your account</h1>
+
+        <h1 class="fillblank">Firm Registration for Lawyers</h1>
             <div id="container">
-                <h2 class="title">Login</h2>
-                <input type="text" name="uid" id="email" placeholder="Username/Email">
-                <input type="password" name="pwd" id="pwd" placeholder="Password"> 
-                <a href="forgetpwd.php" style="font-family: 'Montserrat', sans-serif; font-size: 15px;">Forget password?</a>
-                <button type="submit" name="login" id="loginbtn">Login</button>
-                <h4 class="question">Do not have login details? Contact your admin to register.</h4>
+                <h2 class="title">Register for your lawyers</h2>
+                <form action="registerLawyer.php" method="POST" enctype="multipart/form-data">
+                <input id="fileSelect" type="file" name="myfile" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                    <button type="submit" name="save" id="registerbtn" onclick="checkFile();">Register lawyers now</button>
+                </form>
+                <h4 class="question">Please insert a .csv file with the following format, which can be downloaded from the download button below.</h4>
+                <a href="LIThack.csv" download="registration.csv">
+                    <button class="btn" style="background-color=white;border-radius=5px;border-width=2px;width:50px;height:30px;"><i class="fa fa-download fa-2x" aria-hidden="true"></i></button>
+                </a>
             </div>
-            </form>
         <button type="button" id="back" onclick="main();">Back to main page</button>
-            <!-- Error handling -->
-		<?php
-			if (isset($_GET["error"])) {
-				if ($_GET["error"] == "emptyinput") {
-					echo "<p>Fill in all fields!</p>";
-				}
-				else if ($_GET["error"] == "wronglogin") {
-					echo "<p>Incorrect login info!</p>";
-				}
-			}
-		?>
-    
     </body>
- 
 </html>

@@ -31,7 +31,7 @@
                 color: black;
                 position: absolute;
                 z-index: 5;
-                left: 100px;
+                left: 150px;
             }
             .one{ /*What would you like to do*/
                 position: absolute;
@@ -113,6 +113,10 @@
                 top: 620px;
                 font-family: 'Montserrat', sans-serif;
                 z-index: 2;
+                /* border: none;
+                background-color: #81BAC4;
+                font-size: 18px;
+                width: 200px; */
             }
             .regFirm{
                 position: absolute;
@@ -231,24 +235,30 @@
     <script>
         function indivRegister(){ //for circle 1
             document.getElementById("circle1").style.backgroundColor = "#58A4B0";
-            document.getElementById("circle1").style.transitionDelay = "1s";
+            // document.getElementById("circle1").style.transitionDelay = "1s";
             window.location.href = "./registerNeedy.php";
         }
         function lawyerRegister(){ //for circle 2
             document.getElementById("circle1").style.backgroundColor = "#58A4B0";
-            document.getElementById("circle1").style.transitionDelay = "1s";
+            // document.getElementById("circle1").style.transitionDelay = "1s";
             window.location.href = "./registerLawyer.php";
         }
         function login(){ //for circle 3
             document.getElementById("circle1").style.backgroundColor = "#58A4B0";
-            document.getElementById("circle1").style.transitionDelay = "1s";
-            window.location.href = "./login.php";
+            // document.getElementById("circle1").style.transitionDelay = "1s";
+            window.location.href = "login.php";
+        }
+        function overview(){
+            window.location.href="overview.php"
+        }
+        function mission(){
+            window.location.href="mission.php"
         }
     </script>
 
         <div id="head"></div>
         <div id="headtext"></div>
-        <h3 class="brandname">*Brand Name*</h3>
+        <h2 class="brandname">LegalMatch</h2>
         <div id="white1">
             <h2 class="one">What would you like to do?</h2>
             <div id="circle1" onclick="indivRegister();"></div>
@@ -257,7 +267,7 @@
             <h3 class="regIndiv">Registeration for individuals seeking lawyers</h3>
             <h3 class="regFirm">Registeration for firms' lawyers</h3>
             <h3 class="login">Login for both individuals and lawyers</h3>
-            <button id="overview">More about us</button>
+            <button id="overview" onclick="overview();">More about us</button>
         </div>
         <div id="middle"></div>
         <h2 class="two">About Us</h2>
@@ -268,7 +278,7 @@
             <h3 class="three">Company name</h3>
             <h4 class="four">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</h4>
         </div>
-        <button id="mission">Mission and Vision</button>
+        <button id="mission" onclick="mission();">Mission and Vision</button>
         <!-- <div id="centrebottom"></div>
         <h2 class="five">Contact Us</h2>
         <div id="inputfields">
