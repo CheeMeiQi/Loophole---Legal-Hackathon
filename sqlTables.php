@@ -18,7 +18,7 @@
     lastName VARCHAR(256) NOT NULL,
     gender VARCHAR(256) NOT NULL,
     firm VARCHAR(256) NOT NULL,
-    workNumber VARCHAR(256),
+    workNum VARCHAR(256),
     workEmail VARCHAR(256) NOT NULL,
     profilePic VARBINARY(MAX),
     remainingCases INT(11) NOT NULL,
@@ -35,16 +35,14 @@
     age INT(11) NOT NULL, 
     gender VARCHAR(256) NOT NULL,
     brief VARCHAR(256) NOT NULL,
-    phoneNum VARCHAR(256) NOT NULL,
+    phoneNum VARCHAR(256),
     email VARCHAR(256) NOT NULL,
     transcript VARBINARY(MAX), //TODO: PRESHI - Determine type
     profilePic VARBINARY(MAX),
     waitPeriod INT(11) NOT NULL,
     court INT(11) NOT NULL,
     abuse INT(11) NOT NULL,
-    urgencyScore INT(11) NOT NULL,
     budget FLOAT NOT NULL,
-    caseTaken INT(11) NOT NULL, 
     firstReqDate DATETIME,
     latestReqExpiry DATETIME, //TODO: Will be null if lawyer rejects first
     reqLawyerId INT(11) NOT NULL, //TODO: Can have as -1 if no lawyer to currently request?
@@ -53,6 +51,9 @@
     caseDoneConfirm INT(11) NOT NULL,
     CONSTRAINT beneficiaries_FK FOREIGN KEY (userId) REFERENCES users(userId)
 )"
+
+//caseTaken INT(11) NOT NULL, // Don't think this is needed because we can just check against finalLawyerId (-1 if case not task, and some other number if case if taken)
+//urgencyScore INT(11) NOT NULL, // Don't think we need this at the table since we are calculating within the match function 
 
 "CREATE TABLE rejections (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
