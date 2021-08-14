@@ -79,6 +79,18 @@
                 font-weight: bold;
                 margin-top: 500px;
             }
+            #username{
+                font-family: 'Montserrat', sans-serif;
+                font-size: 18px;
+                color: black;
+                background-color: #81BAC4;
+                border-style: solid;
+                border-color: white;
+                border-width: 2px;
+                border-radius:5px;
+                width: 400px;
+                height: 50px;
+            }
             #email{
                 font-family: 'Montserrat', sans-serif;
                 font-size: 18px;
@@ -90,6 +102,7 @@
                 border-radius:5px;
                 width: 400px;
                 height: 50px;
+                margin-top: 10px;
             }
             #pwd{
                 font-family: 'Montserrat', sans-serif;
@@ -136,7 +149,7 @@
         <h1 class="fillblank">Individual Registration</h1>
             <div id="container">
                 <h2 class="title">Register for an account</h2>
-                <input type="username" name="username" id="email" placeholder="Username">
+                <input type="username" name="username" id="username" placeholder="Username">
                 <input type="text" name="email" id="email" placeholder="Email">
                 <input type="password" name="pwd" id="pwd" placeholder="Password">    
                 <input type="password" name="cfm_pwd" id="cfm_pwd" placeholder="Re-type password">       

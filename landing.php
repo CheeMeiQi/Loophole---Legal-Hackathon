@@ -101,7 +101,20 @@
                 background-color: #81BAC4;
                 cursor:pointer;
             }
-            #circle1:hover, #circle2:hover, #circle3:hover{
+            #circle4{
+                position: absolute;
+                width: 200px;
+                border-radius: 50%;
+                border-width: 10px;
+                border-color: #58A4B0;
+                height: 200px;
+                left: 1284px;
+                top: 570px;
+                z-index: 2;
+                background-color: #81BAC4;
+                cursor:pointer;
+            }
+            #circle1:hover, #circle2:hover, #circle3:hover, #circle4:hover{
                 background: #58A4B0;
                 transition-delay: 1s;
             }
@@ -127,7 +140,7 @@
                 font-family: 'Montserrat', sans-serif;
                 z-index: 2;
             }
-            .login{
+            .loginindiv{
                 position: absolute;
                 width: 150px;
                 height: 26px;
@@ -136,7 +149,15 @@
                 font-family: 'Montserrat', sans-serif;
                 z-index: 2;
             }
-            
+            .loginfirm{
+                position: absolute;
+                width: 150px;
+                height: 26px;
+                left: 1300px;
+                top: 615px;
+                font-family: 'Montserrat', sans-serif;
+                z-index: 2;
+            }
             #overview{
                 position: absolute;
                 width: 208px;
@@ -243,10 +264,15 @@
             // document.getElementById("circle1").style.transitionDelay = "1s";
             window.location.href = "./checkFirm.php";
         }
-        function login(){ //for circle 3
+        function loginindiv(){ //for circle 3
             document.getElementById("circle1").style.backgroundColor = "#58A4B0";
             // document.getElementById("circle1").style.transitionDelay = "1s";
-            window.location.href = "login.php";
+            window.location.href = "loginindiv.php";
+        }
+        function loginfirm(){ //for circle 4
+            document.getElementById("circle1").style.backgroundColor = "#58A4B0";
+            // document.getElementById("circle1").style.transitionDelay = "1s";
+            window.location.href = "loginfirm.php";
         }
         function overview(){
             window.location.href="overview.php"
@@ -263,10 +289,12 @@
             <h2 class="one">What would you like to do?</h2>
             <div id="circle1" onclick="indivRegister();"></div>
             <div id="circle2" onclick="lawyerRegister();"></div>
-            <div id="circle3" onclick="login();"></div>
+            <div id="circle3" onclick="loginindiv();"></div>
+            <div id="circle4" onclick="loginfirm();"></div>
             <h3 class="regIndiv">Registeration for individuals seeking lawyers</h3>
             <h3 class="regFirm">Registeration for firms' lawyers</h3>
-            <h3 class="login">Login for both individuals and lawyers</h3>
+            <h3 class="loginindiv">Login for individuals</h3>
+            <h3 class="loginfirm">Login for firms</h3>
             <button id="overview" onclick="overview();">More about us</button>
         </div>
         <div id="middle"></div>

@@ -117,15 +117,15 @@
     </script>
         <div id="triangleright1"></div>
         <div id = "triangleright2"></div>
-        <form action="includes/login.inc.php" method="POST">
+        <form action="includes/loginindiv.inc.php" method="POST">
         <h1 class="fillblank">Login to access your account</h1>
             <div id="container">
                 <h2 class="title">Login</h2>
-                <input type="text" name="uid" id="email" placeholder="Username/Email">
+                <input type="text" name="uid" id="email" placeholder="Email">
                 <input type="password" name="pwd" id="pwd" placeholder="Password"> 
                 <a href="forgetpwd.php" style="font-family: 'Montserrat', sans-serif; font-size: 15px;">Forget password?</a>
                 <button type="submit" name="login" id="loginbtn">Login</button>
-                <h4 class="question">Do not have login details? For lawyers: Contact your admin to get the default password. For individuals: Register for an account first.</h4>
+                <h4 class="question">Do not have login details? Register for an account first.</h4>
             </div>
             </form>
         <button type="button" id="back" onclick="main();">Back to main page</button>
