@@ -151,9 +151,9 @@
                 Have court proceedings been commenced in your case? 
               </label><br />
 
-              <input type="radio" id="court" name="court" oninput="update('y', 'court')"/>
+              <input type="radio" id="court" name="court" oninput="update('1', 'court')"/>
               <label for="yes">Yes</label>
-              <input type="radio" id="court" name="court" oninput="update('n', 'court')" />
+              <input type="radio" id="court" name="court" oninput="update('0', 'court')" />
               <label for="no">No</label>
               
               
@@ -164,9 +164,9 @@
               Are you facing physical/mental abuse?
               </label><br />
 
-              <input type="radio" id="court" name="court" oninput="update('y', 'abuse')"/>
+              <input type="radio" id="court" name="court" oninput="update('1', 'abuse')"/>
               <label for="yes">Yes</label>
-              <input type="radio" id="court" name="court" oninput="update('n', 'abuse')" />
+              <input type="radio" id="court" name="court" oninput="update('0', 'abuse')" />
               <label for="no">No</label>
               
             </div>
