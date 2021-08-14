@@ -59,6 +59,8 @@
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     beneficiaryId INT(11) NOT NULL,
     lawyerId INT(11) NOT NULL,
+    CONSTRAINT beneficiaries_FK1 FOREIGN KEY (beneficiaryId) REFERENCES users(userId)
+    CONSTRAINT lawyers_FK1 FOREIGN KEY (lawyerId) REFERENCES users(userId)
 )"
 
 // Practice areas table (We will track based on the userid, will be -1 by default and then updated to the lawyers' quotes)
