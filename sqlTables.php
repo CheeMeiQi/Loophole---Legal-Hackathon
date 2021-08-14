@@ -31,7 +31,7 @@
 //TODO: Need to still ask for income level, phone number and email? Also we need to run the algorithm once the first request is unsucessful right? Bc the 2nd option lawyer might be suddenly occupied
 //TODO: Also are we strictly only allowing them to go with their top match?
 "CREATE TABLE beneficiaries (
-    userId INT(11) NOT NULL, 
+    userId INT(11) PRIMARY KEY NOT NULL, 
     firstName VARCHAR(256) NOT NULL,
     lastName VARCHAR(256) NOT NULL,
     age INT(11) NOT NULL, 
@@ -45,11 +45,11 @@
     court INT(11) NOT NULL,
     abuse INT(11) NOT NULL,
     budget FLOAT NOT NULL,
-    firstReqDate DATETIME,
-    latestReqExpiry DATETIME, //TODO: Will be null if lawyer rejects first
+    firstReqDate DATETIME DEFAULT NULL,
+    latestReqExpiry DATETIME DEFAULT NULL, //TODO: Will be null if lawyer rejects first
     reqLawyerId INT(11) NOT NULL, //TODO: Can have as -1 if no lawyer to currently request?
     finalLawyerId INT(11) NOT NULL,
-    caseDoneReqExpiry DATETIME,
+    caseDoneReqExpiry DATETIME DEFAULT NULL,
     caseDoneConfirm INT(11) NOT NULL,
     CONSTRAINT beneficiaries_FK FOREIGN KEY (userId) REFERENCES users(userId)
 )"
