@@ -483,6 +483,12 @@
             </div>
         </form>
 
-    <input type="submit" value="Refer me a lawyer" id="submit" />
+    <input type="submit" value="Save Profile" id="save" />
+    
+      <!-- include php if needed -->
+    
+    <form method = "post" action="../Loophole---Legal-Hackathon/includes/match1.inc.php">
+        <input type = "submit" name = "refer" value = "Refer me a lawyer">
+    </form>
   </body>
 </html>

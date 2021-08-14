@@ -5,6 +5,7 @@
     $db='loophole';
     $conn = mysqli_connect('localhost', $user, $pass, $db);
     date_default_timezone_set("Singapore");
+    echo "match();";
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,6 +15,7 @@
 
     // We will run for each person
     function match() {
+        echo ("i make it to match"); //TEST
         // Step 1: Sort beneficiaries according to urgency score (datetime diff + categories) (put in an array)
         let currB, currCourt, currAbuse, currScore, tempArr, bArr;
         <?php
