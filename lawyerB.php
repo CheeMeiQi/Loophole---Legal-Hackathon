@@ -18,6 +18,16 @@
   </head>
 
   <body>
+    <!-- linking pages -->
+    <script>
+      function clients() {
+        //for "Clients&pendingClients"
+        document.getElementById("button3").style.backgroundColor = "#58A4B0";
+        document.getElementById("button3").style.transitionDelay = "1s";
+        window.location.href = "./clients.php";
+      }
+    </script>
+
     <div id="titleStyle">
       <h1>Hello [insert profile name]!</h1>
       <h2>Company: [insert company name]</h2>
@@ -26,9 +36,9 @@
         your work and manage your clients using this dashboard.
       </p>
       <div id="inlineStyle2">
-        <button id="button">Change Password</button>
-        <button id="button">Edit Profile</button>
-        <button id="button">Clients & Pending Clients</button>
+        <button id="button1">Change Password</button>
+        <button id="button2">Edit Profile</button>
+        <button id="button3" onclick="clients()">Clients & Pending Clients</button>
       </div>
     </div>
 
@@ -38,7 +48,10 @@
         <!-- for is to pair with input id -->
         <!-- name is for javascript -->
         <!-- textarea is for a block of text -->
-        <form id="lawyerProfile" action="../includes/lawyerBProfile.php" method="POST">
+        <form id="lawyerProfile" action="../Loophole---Legal-Hackathon/includes/lawyerBProfile.inc.php" method="POST">
+        <script>
+          var ele = document.getElementById("lawyerProfile");
+        </script>
           <div id="marginStyle">
             <h4>User Information</h4>
             <div id="userInfo">
@@ -76,11 +89,11 @@
               </div>
 
               <label for="gender">Gender</label><br />
-              <input type="radio" id="gender" name="male" oninput="update('m', 'male')"/>
+              <input type="radio" id="gender" name="male" oninput="update('m', 'gender')"/>
               <label for="male"> Male</label>
-              <input type="radio" id="gender" name="female" oninput="update('f', 'female')"/>
+              <input type="radio" id="gender" name="female" oninput="update('f', 'gender')"/>
               <label for="female"> Female</label>
-              <input type="radio" id="gender" name="others" oninput="update('o', 'others')"/>
+              <input type="radio" id="gender" name="others" oninput="update('o', 'gender')"/>
               <label for="others"> Others</label>
             </div>
 
@@ -125,6 +138,7 @@
               <label for="avail">Maximum number of cases you can take on:</label
               ><br />
               <select name="avail" id="avail" oninput="update(this.value, 'avail')">
+                <option value="0" >0</option>
                 <option value="1" >1</option>
                 <option value="2" >2</option>
                 <option value="3" >3</option>
@@ -155,17 +169,18 @@
               <!-- //////////////// -->
               <script>
                 var pracArea = [];
-                var jsPracArea = document.createElement("input");
-                jsPracArea.type = "hidden";
-                jsPracArea.value = pracArea;
-                jsPracArea.name = "jsPracArea";
-                ele.appendChild(jsPracArea);
                 for (let i=0; i<34; i++){
                   pracArea.push(-1);
                 }
                 function updatePracArea(index, price){
                   pracArea[index] = price;
+                  var jsPracArea = document.createElement("input");
+                  jsPracArea.type = "hidden";
+                  jsPracArea.value = JSON.stringify(pracArea);
+                  jsPracArea.name = "jsPracArea";
+                  ele.appendChild(jsPracArea);
                 }
+  
               </script>
               <br />
               <strong>Criminal Law</strong>
@@ -854,13 +869,12 @@
             let username=document.getElementById('username');
             let firstName=document.getElementById('firstName');
             let lastName=document.getElementById('lastName');
-            let gender=document.getElementById('gender');
+            let gender;
             let CoName=document.getElementById('CoName');
             let workNo=document.getElementById('workNo');
             let workEmail=document.getElementById('workEmail');
             let avail=document.getElementById('avail');
             
-            var ele = document.getElementById("lawyerProfile");
             function update(val, type){
               if (type=='username'){
                 username=val;
@@ -928,9 +942,9 @@
               }
             }
           </script>
+          <input type="submit" value="Save Profile" id="submit" name="submit"/>
         </form>
       </div>
     </div>
-    <input type="submit" value="Submit" id="submit" />
   </body>
 </html>
