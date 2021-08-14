@@ -35,13 +35,24 @@
                 border-radius: 20px;
                 transform: rotate(18.78deg);
             }
-            #fileSelect{
+            #firmName{
                 font-family: 'Montserrat', sans-serif;
                 border-radius: 5px;
                 border-color: black;
                 border-width: 2px;
+                width: 350px;
+                height: 30px;
             }
-            #registerbtn{
+            #email{
+                font-family: 'Montserrat', sans-serif;
+                border-radius: 5px;
+                border-color: black;
+                border-width: 2px;
+                width: 350px;
+                height: 30px;
+                margin-top: 10px;
+            }
+            #checkbtn{
                 font-family: 'Montserrat', sans-serif;
                 font-size: 18px;
                 font-weight: 10px;
@@ -56,26 +67,7 @@
                 margin-top: 10px;
                 margin-left: 80px;
             }
-            #registerbtn:hover {
-                background-color: #abf2ff;
-            }
-            #submit{
-                font-family: 'Montserrat', sans-serif;
-                font-size: 18px;
-                font-weight: 10px;
-                color: black;
-                background-color: #81BAC4;
-                border-style: solid;
-                border-color: white;
-                border-width: 2px;
-                border-radius: 5px;
-                width: 150px;
-                height: 50px;
-                margin-top: 300px;
-                margin-left: 1200px;
-                position: absolute;
-            }
-            #submit:hover {
+            #checkbtn:hover {
                 background-color: #abf2ff;
             }
             .question{
@@ -99,7 +91,7 @@
             #back{
                 font-family: 'Montserrat', sans-serif;
                 background-color: #abf2ff;
-                margin-top: 500px;
+                margin-top: 680px;
                 left: 100px;
                 position: absolute;
                 border-width: 2px;
@@ -112,14 +104,14 @@
 
     <body style="background-color=white;">
     <script>
-        function checkFile() {
-            if (document.getElementById("fileSelect").value == "") {
-                window.alert("Please submit an acceptable file type in the file upload field following the instructions below!");
-                window.location.href="../registerLawyer.php"
-            } 
+        function checkEmail() {
+            if ((document.getElementById("clinicName").value == "")||(document.getElementById("email").value == "")) {
+                window.alert("Please fill in all fields!");
+                window.location.href="registerLawyer.php"
+            }
         }
         function main(){
-            window.location.href="landing.php"
+            window.location.href="../landing.php"
         }
     </script>
         <div id="triangleright1"></div>
@@ -128,18 +120,13 @@
         <h1 class="fillblank">Firm Registration for Lawyers</h1>
             <div id="container">
                 <h2 class="title">Register for your lawyers</h2>
-                <form action="registerLawyer.php" method="POST" enctype="multipart/form-data">
-                <input id="fileSelect" type="file" name="myfile" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
-                    <button type="submit" name="save" id="registerbtn" onclick="checkFile();">Confirm upload file</button>
+                <form action="includes/checkFirm.inc.php" method="POST">
+                    <input type="text" id="firmName" name="firmName" placeholder="Firm Name">
+                    <input type="email" id="email" name="email"  placeholder="Email">
+                    <button type="submit" name="checkbtn" id="checkbtn" onclick="checkEmail();">Submit</button>
                 </form>
-                <h4 class="question">Please insert a .csv file with the following format, which can be downloaded from the download button below. DO NOT change the filename.</h4>
-                <a href="registration_firm-name.csv" download="registration.csv">
-                    <button class="btn" style="background-color=white;border-radius=5px;border-width=2px;width:50px;height:30px;"><i class="fa fa-download fa-2x" aria-hidden="true"></i></button>
-                </a>
+                <h4 class="question">Please key-in your firm's name and registered email.</h4>
             </div>
-            <form action="includes/registerLawyer.inc.php" method="POST">
-                <button type="submit" name="submit" id="submit">Register lawyers now!</button>
-            </form>
         <button type="button" id="back" onclick="main();">Back to main page</button>
     </body>
 </html>

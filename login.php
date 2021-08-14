@@ -104,6 +104,7 @@
                 border-radius: 5px;
                 border-color: black;
                 font-weight: bold;
+                margin-top: 500px;
             }
         </style>
     </head>
@@ -111,7 +112,7 @@
     <body style="background-color=white;">
     <script>
         function main() {
-            window.location.href="../landing.php";
+            window.location.href="landing.php";
         }
     </script>
         <div id="triangleright1"></div>
@@ -124,7 +125,7 @@
                 <input type="password" name="pwd" id="pwd" placeholder="Password"> 
                 <a href="forgetpwd.php" style="font-family: 'Montserrat', sans-serif; font-size: 15px;">Forget password?</a>
                 <button type="submit" name="login" id="loginbtn">Login</button>
-                <h4 class="question">Do not have login details? Contact your admin to register.</h4>
+                <h4 class="question">Do not have login details? For lawyers: Contact your admin to get the default password. For individuals: Register for an account first.</h4>
             </div>
             </form>
         <button type="button" id="back" onclick="main();">Back to main page</button>

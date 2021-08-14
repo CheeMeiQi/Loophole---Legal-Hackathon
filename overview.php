@@ -37,7 +37,7 @@
         Our platform is perfect for finding a lawyer:
       </p>
       <ul>
-        <li>Who matchees your budget</li>
+        <li>Who matches your budget</li>
         <li>As soon as possible</li>
         <li>With the right expertise to assist with your case</li>
     </ul>
