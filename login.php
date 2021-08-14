@@ -1,7 +1,3 @@
-<?php
-    include_once 'footer.php'
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -98,10 +94,26 @@
                 margin-left: 80px;
                 margin-top: 50px;
             }
+            #back{
+                font-family: 'Montserrat', sans-serif;
+                background-color: #abf2ff;
+                margin-top: 680px;
+                left: 100px;
+                position: absolute;
+                border-width: 2px;
+                border-radius: 5px;
+                border-color: black;
+                font-weight: bold;
+            }
         </style>
     </head>
 
     <body style="background-color=white;">
+    <script>
+        function main() {
+            window.location.href="../landing.php";
+        }
+    </script>
         <div id="triangleright1"></div>
         <div id = "triangleright2"></div>
         <form action="includes/login.inc.php" method="POST">
@@ -115,6 +127,7 @@
                 <h4 class="question">Do not have login details? Contact your admin to register.</h4>
             </div>
             </form>
+        <button type="button" id="back" onclick="main();">Back to main page</button>
             <!-- Error handling -->
 		<?php
 			if (isset($_GET["error"])) {

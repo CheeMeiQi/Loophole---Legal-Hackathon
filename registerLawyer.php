@@ -1,3 +1,6 @@
+<?php 
+    include 'file-upload-download/filesLogic.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -74,6 +77,17 @@
                 margin-left: 80px;
                 margin-top: 50px;
             }
+            #back{
+                font-family: 'Montserrat', sans-serif;
+                background-color: #abf2ff;
+                margin-top: 680px;
+                left: 100px;
+                position: absolute;
+                border-width: 2px;
+                border-radius: 5px;
+                border-color: black;
+                font-weight: bold;
+            }
         </style>
     </head>
 
@@ -85,6 +99,9 @@
                 window.location.href="../registerLawyer.php"
             }
         }
+        function main(){
+            window.location.href="../landing.php"
+        }
     </script>
         <div id="triangleright1"></div>
         <div id = "triangleright2"></div>
@@ -92,14 +109,15 @@
         <h1 class="fillblank">Firm Registration for Lawyers</h1>
             <div id="container">
                 <h2 class="title">Register for your lawyers</h2>
-                <form action="includes/registerLawyer.inc.php" method="POST">
-                <input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
-                    <button type="submit" name="login" id="registerbtn" onclick="checkFile();">Register lawyers now</button>
+                <form action="registerLawyer.php" method="POST" enctype="multipart/form-data">
+                <input id="fileSelect" type="file" name="myfile" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                    <button type="submit" name="save" id="registerbtn" onclick="checkFile();">Register lawyers now</button>
                 </form>
                 <h4 class="question">Please insert a .csv file with the following format, which can be downloaded from the download button below.</h4>
                 <a href="LIThack.csv" download="registration.csv">
                     <button class="btn" style="background-color=white;border-radius=5px;border-width=2px;width:50px;height:30px;"><i class="fa fa-download fa-2x" aria-hidden="true"></i></button>
                 </a>
             </div>
+        <button type="button" id="back" onclick="main();">Back to main page</button>
     </body>
 </html>
