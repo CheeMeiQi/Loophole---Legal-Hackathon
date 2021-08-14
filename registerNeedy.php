@@ -77,6 +77,7 @@
                 border-radius: 5px;
                 border-color: black;
                 font-weight: bold;
+                margin-top: 500px;
             }
             #email{
                 font-family: 'Montserrat', sans-serif;
@@ -125,7 +126,7 @@
     <body style="background-color=white;">
     <script>
         function main() {
-            window.location.href="../landing.php";
+            window.location.href="landing.php";
         }
     </script>
 

@@ -241,7 +241,7 @@
         function lawyerRegister(){ //for circle 2
             document.getElementById("circle1").style.backgroundColor = "#58A4B0";
             // document.getElementById("circle1").style.transitionDelay = "1s";
-            window.location.href = "./registerLawyer.php";
+            window.location.href = "./checkFirm.php";
         }
         function login(){ //for circle 3
             document.getElementById("circle1").style.backgroundColor = "#58A4B0";
