@@ -1,0 +1,83 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  margin-top: 0;
+  margin-bottom: 5%;
+  padding: 0;
+  width: 100%;
+}
+
+#titleStyle {
+  background-image: url(image1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  color: white;
+  padding-left: 5%;
+}
+
+#button {
+  background-color: #f0ccbc;
+  color: #2d0320;
+  padding: 1%;
+  border-radius: 10px;
+}
+
+#inlineStyle2 {
+  display: flex;
+}
+
+#account {
+  position: relative;
+  margin-top: 25%;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #f7fafc;
+}
+
+#userInfo {
+  margin-left: 3%;
+}
+
+#contactInfo {
+  margin-left: 3%;
+}
+
+#availability {
+  margin-left: 3%;
+}
+
+#marginStyle {
+  margin-left: 10%;
+}
+
+#PASandFee {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#fee {
+  margin-left: 3%;
+}
+
+#feeStyle {
+  margin-top: 3%;
+}
+
+#inlineStyle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#submit {
+  margin-left: 50%;
+}
