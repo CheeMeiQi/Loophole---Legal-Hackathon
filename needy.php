@@ -79,7 +79,7 @@
               <label for="age">Age</label>
               <div>
                 <input
-                  type="number"
+                  type="text"
                   id="age"
                   name="age"
                   placeholder="Age"
