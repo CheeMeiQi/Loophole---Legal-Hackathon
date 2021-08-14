@@ -227,9 +227,67 @@
         }
     }
 
-    // Withdraw accounts function (for beneficiaries and lawyers)
-    // This function will be available if you are a lawyer have no cases or if you 
-    
+    // Withdraw accounts function (for beneficiaries and lawyers) 
+    //TODO: $userid will be the user's id as I am assuming this will be done from their profile
+    function withdrawLawyer() {
+        $currCases = "SELECT * FROM beneficiaries WHERE finalLawyerId = $userid;";
+        $cases = mysqli_query($conn, $currCases);
+
+        if ($cases) {
+            $resultCheck = mysqli_num_rows($cases);
+            $data = array();
+
+            if ($resultCheck > 0) {
+                // There are ongoing cases and thus cannot withdraw
+                echo 'console.log("Sorry, you are unable to withdraw your account at the moment as you have at least ongoing case. If you have completed all your cases, please check with your beneficiaries on whether they have replied to the case confirmation request sent by you. You may check on pending requests at the case confirmation requests page. Thank you");';
+            } else {
+                $terminate = "DELETE * FROM users where userId = $userid;";
+                $removeLawyer = "DELETE * FROM lawyers where userId = $userid;";
+                $removeRejected = "DELETE * FROM rejections where lawyerId = $userid;";
+                $removePracAreas = "DELETE * FROM practiceAreas where userId = $userid;";
+
+                mysqli_query($conn, $terminate);
+                mysqli_query($conn, $removeLawyer);
+                mysqli_query($conn, $removeRejected);
+                mysqli_query($conn, $removePracAreas);
+            }
+        }
+    }
+
+    //TODO: $userid will be the user's id as I am assuming this will be done from their profile
+    function withdrawBeneficiary() {
+        $bDetails = "SELECT * FROM beneficiaries WHERE userId = $userid;";
+        $details = mysqli_query($conn, $bDetails);
+
+        if ($details) {
+            $resultCheck = mysqli_num_rows($details);
+            $data = array();
+
+            if ($resultCheck > 0) {
+                echo 'console.log("I have found the beneficiary record");';
+                while ($row = mysqli_fetch_assoc($details)) {
+                    $data[] = $row;   
+                }
+                foreach($data as $single) {
+                    $finalLawyerId = (int) $single["finalLawyerId"];
+                    // If no lawyer has been officially attached to their case, beneficiary can withdraw the case
+                    if ($finalLawyerId == -1) {
+                        $terminate = "DELETE * FROM users where userId = $userid;";
+                        $removeB = "DELETE * FROM beneficiaries where userId = $userid;";
+                        $removeRejected = "DELETE * FROM rejections where beneficiaryId = $userid;";
+                        $removeHelpAreas = "DELETE * FROM helpAreas where userId = $userid;";
+
+                        mysqli_query($conn, $terminate);
+                        mysqli_query($conn, $removeB);
+                        mysqli_query($conn, $removeRejected);
+                        mysqli_query($conn, $removeHelpAreas);
+                    } else {
+                        echo 'console.log("Sorry, you are unable to withdraw your profile as a lawyer is now looking into your case. If you wish to not pursue your case further, please inform your lawyer and request them to send a case confirmation request that will allow you to withdraw your profile. Thank you.");';
+                    }
+                }
+            }
+        }
+    }
 
     // Reject function (what happens when a lawyer rejects a beneficiary?)
     // Lawyer's remainingCases increases by 1 and beneficiary gets thrown back into the algo
