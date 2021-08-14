@@ -95,7 +95,7 @@
                                     $data4= array();
 
                                     if ($resultCheck4 > 0) {
-                                        echo 'console.log("I have at least 1 result");';
+                                        echo 'console.log("I have at least 1 lawyer that I can match with");';
                                         while ($row2 = mysqli_fetch_assoc($currPracAreas)) {
                                             $data4[] = $row2;   
                                         }
@@ -123,11 +123,11 @@
                         $currBFinding = mysqli_query($conn, $areas);
 
                         if ($currBFinding) {
-                            $resultCheck5 = mysqli_num_rows($results);
+                            $resultCheck5 = mysqli_num_rows($currBFinding);
                             $data5 = array();
                             if ($resultCheck5 > 0) {
                                 echo 'console.log("I am able to find the beneficiary");';
-                                while ($row3 = mysqli_fetch_assoc($results)) {
+                                while ($row3 = mysqli_fetch_assoc($currBFinding)) {
                                     $data5[] = $row3;   
                                 }
                                 foreach($data5 as $single3) {
@@ -192,12 +192,44 @@
         mysqli_query($conn, $sendRequest);
     }
 
-    // Terminate account function
+    // Terminate account function for beneficiaries
     // So (if it is the expiry date and confirmation still 0) or (confirmation is 1), then delete profile from sql
-    // 
+    function terminate($bId) {
+        $caseConfirmDetails = "SELECT * FROM beneficiaries WHERE userId = $bId;";
+        $confirmation = mysqli_query($conn, $caseConfirmDetails);
+
+        if ($caseConfirmDetails) {
+            $resultCheck = mysqli_num_rows($caseConfirmDetails);
+            $data = array();
+
+            if ($resultCheck > 0) {
+                echo 'console.log("I have found the beneficiary record");';
+                while ($row = mysqli_fetch_assoc($caseConfirmDetails)) {
+                    $data[] = $row;   
+                }
+                foreach($data as $single) {
+                    $caseDoneReqExpiry = $single["caseDoneReqExpiry"];
+                    $caseDoneConfirm = (int) $single["caseDoneConfirm"];
+
+                    if ($caseDoneConfirm == 1 || new DateTime() >= $caseDoneReqExpiry) {
+                        $terminate = "DELETE * FROM users where userId = $bId;";
+                        $removeB = "DELETE * FROM beneficiaries where userId = $bId;";
+                        $removeRejected = "DELETE * FROM rejections where beneficiaryId = $bId;";
+                        $removeHelpAreas = "DELETE * FROM helpAreas where userId = $bId;";
+
+                        mysqli_query($conn, $terminate);
+                        mysqli_query($conn, $removeB);
+                        mysqli_query($conn, $removeRejected);
+                        mysqli_query($conn, $removeHelpAreas);
+                    }
+                }
+            }
+        }
+    }
 
     // Withdraw accounts function (for beneficiaries and lawyers)
     // This function will be available if you are a lawyer have no cases or if you 
+    
 
     // Reject function (what happens when a lawyer rejects a beneficiary?)
     // Lawyer's remainingCases increases by 1 and beneficiary gets thrown back into the algo
