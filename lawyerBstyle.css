@@ -24,7 +24,21 @@ body {
   margin-left: -3%;
 }
 
-#button {
+#button1 {
+  background-color: #f0ccbc;
+  color: #2d0320;
+  padding: 1%;
+  border-radius: 10px;
+}
+
+#button2 {
+  background-color: #f0ccbc;
+  color: #2d0320;
+  padding: 1%;
+  border-radius: 10px;
+}
+
+#button3 {
   background-color: #f0ccbc;
   color: #2d0320;
   padding: 1%;

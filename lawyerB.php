@@ -18,6 +18,16 @@
   </head>
 
   <body>
+    <!-- linking pages -->
+    <script>
+      function clients() {
+        //for "Clients&pendingClients"
+        document.getElementById("button3").style.backgroundColor = "#58A4B0";
+        document.getElementById("button3").style.transitionDelay = "1s";
+        window.location.href = "./clients.php";
+      }
+    </script>
+
     <div id="titleStyle">
       <h1>Hello [insert profile name]!</h1>
       <h2>Company: [insert company name]</h2>
@@ -26,9 +36,9 @@
         your work and manage your clients using this dashboard.
       </p>
       <div id="inlineStyle2">
-        <button id="button">Change Password</button>
-        <button id="button">Edit Profile</button>
-        <button id="button">Clients & Pending Clients</button>
+        <button id="button1">Change Password</button>
+        <button id="button2">Edit Profile</button>
+        <button id="button3" onclick="clients()">Clients & Pending Clients</button>
       </div>
     </div>
 
