@@ -37,6 +37,9 @@
         <!-- name is for javascript -->
         <!-- textarea is for a block of text -->
         <form id="needyProfile" action="../includes/needyProfile.php" method="POST">
+        <script>
+          var ele = document.getElementById("needyProfile");
+        </script>
           <div id="marginStyle">
             <h4>User Information</h4>
             <div id="userInfo">
@@ -73,12 +76,23 @@
                 />
               </div>
 
+              <label for="age">Age</label>
+              <div>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  placeholder="Age"
+                  oninput="update(this.value, 'age')"
+                />
+              </div>
+
               <label for="gender">Gender</label><br />
               <input type="radio" id="gender" name="male" oninput="update('m', 'gender')"/>
               <label for="male"> Male</label>
-              <input type="radio" id="gender" name="female" />
+              <input type="radio" id="gender" name="female" oninput="update('f', 'gender')" />
               <label for="female"> Female</label>
-              <input type="radio" id="gender" name="others" />
+              <input type="radio" id="gender" name="others" oninput="update('o', 'gender')" />
               <label for="others"> Others</label>
             </div>
 
@@ -91,6 +105,7 @@
                   id="CoName"
                   name="CoName"
                   placeholder="Enter company name"
+                  oninput="update(this.value, 'CoName')"
                 />
               </div>
 
@@ -101,6 +116,7 @@
                   id="personalNo"
                   name="personalNo"
                   placeholder="Exclude country code"
+                  oninput="update(this.value, 'personalNo')"
                 />
               </div>
 
@@ -111,21 +127,48 @@
                   id="personalEmail"
                   name="personalEmail"
                   placeholder="bing@example.com"
+                  oninput="update(this.value, 'personalEmail')"
                 />
               </div>
             </div>
 
-            <h4>Availability</h4>
-            <div id="availability">
-              <label for="avail"
+            <h4>Wait Period</h4>
+            <div id="waitPeriod">
+              <label for="wait"
                 >Maximum no. of waiting days for lawyer's acceptance of case
                 offer</label
               ><br />
-              <select name="avail" id="avail">
+              <select name="wait" id="wait" oninput="update(this.value, 'wait')">
+                <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
               </select>
+            </div>
+
+            <div id="court">
+              <label for="court">
+                Have court proceedings been commenced in your case? 
+              </label><br />
+
+              <input type="radio" id="court" name="court" oninput="update('y', 'court')"/>
+              <label for="yes">Yes</label>
+              <input type="radio" id="court" name="court" oninput="update('n', 'court')" />
+              <label for="no">No</label>
+              
+              
+            </div>
+
+            <div id="abuse">
+              <label for="abuse">
+              Are you facing physical/mental abuse?
+              </label><br />
+
+              <input type="radio" id="court" name="court" oninput="update('y', 'abuse')"/>
+              <label for="yes">Yes</label>
+              <input type="radio" id="court" name="court" oninput="update('n', 'abuse')" />
+              <label for="no">No</label>
+              
             </div>
 
           </div>
@@ -136,7 +179,22 @@
                 <label for="helpArea"
                   >Select ALL of your needed legal aid area(s):</label
                 ><br />
-            
+              <!-- ///////////////// -->
+              <script>
+                var helpArea = [];
+                for (let i=0; i<34; i++){
+                  pracArea.push(0);
+                }
+                function updateHelpArea(index, budget){
+                  helpArea[index] = budget;
+                  var jsHelpArea = document.createElement("input");
+                  jsHelpArea.type = "hidden";
+                  jsHelpArea.value = JSON.stringify(helpArea);
+                  jsHelpArea.name = "jsHelpArea";
+                  ele.appendChild(jsHelpArea);
+                }
+  
+              </script>
 
             
 
@@ -152,7 +210,7 @@
               <!-- //////////////////// -->
                 <input
                   type="checkbox"
-                  id="practiceArea"
+                  id="helpArea"
                   name="Commercial Crime and Regulatory Compliance"
                 />
                 <label for="Commercial Crime and Regulatory Compliance">
@@ -163,7 +221,7 @@
               <!-- /////////////////// -->
               <input
               type="checkbox"
-              id="practiceArea"
+              id="helpArea"
               name="Magistrate's Complaint"
               />
               <label for="Magistrate's Complaint">
@@ -172,7 +230,7 @@
               <hr />
               
               <!-- /////////////////////// -->
-              <input type="checkbox" id="practiceArea" name="Cybercrime" />
+              <input type="checkbox" id="helpArea" name="Cybercrime" />
   <label for="Cybercrime"> Cybercrime</label><br /><br />
   <hr />
 
@@ -180,7 +238,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Protection From Harassment Order"
   />
   <label for="Protection From Harassment Order">
@@ -191,7 +249,7 @@
 <!-- /////////////////////// -->
 <br />
 <strong>Family Law</strong><br/><br/>
-  <input type="checkbox" id="practiceArea" name="Divorce" />
+  <input type="checkbox" id="helpArea" name="Divorce" />
   <label for="Divorce"> Divorce</label><br /><br />
   <hr />
 
@@ -199,7 +257,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Syariah Divorce"
   />
   <label for="Syariah Divorce"> Syariah Divorce</label
@@ -209,7 +267,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Divorce in England and Wales"
   />
   <label for="Divorce in England and Wales">
@@ -220,7 +278,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Pre-Nuptial Agreement"
   />
   <label for="Pre-Nuptial Agreement"> Pre-Nuptial Agreement</label
@@ -229,7 +287,7 @@
 <!-- /////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Personal Protection Order"
   />
   <label for="Personal Protection Order">
@@ -237,7 +295,7 @@
   ><br /><br />
   <hr />
 <!-- /////////////// -->
-  <input type="checkbox" id="practiceArea" name="Adoption" />
+  <input type="checkbox" id="helpArea" name="Adoption" />
   <label for="Adoption"> Adoption</label><br /><br />
   <hr />
 
@@ -246,7 +304,7 @@
 <strong>Incapacity and Inheritance</strong><br/><br/>
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Lasting Power of Attorney (LPA)"
   />
   <label for="Lasting Power of Attorney (LPA)">
@@ -256,7 +314,7 @@
 <!-- //////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Probate and Letters of Administration"
   />
   <label for="Probate and Letters of Administration">
@@ -265,14 +323,14 @@
   <hr />
 
 <!-- //////////////////////////// -->
-  <input type="checkbox" id="practiceArea" name="Wills" />
+  <input type="checkbox" id="helpArea" name="Wills" />
   <label for="Wills"> Wills</label><br /><br />
   <hr />
 
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Muslim Wills and Inheritance"
   />
   <label for="Muslim Wills and Inheritance">
@@ -284,7 +342,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Mental Capacity Act applications"
   />
   <label for="Mental Capacity Act applications">
@@ -294,7 +352,7 @@
 
 <!-- //////// -->
 <!-- /////////////////////// -->
-  <input type="checkbox" id="practiceArea" name="Trusts" />
+  <input type="checkbox" id="helpArea" name="Trusts" />
   <label for="Trusts"> Trusts</label><br /><br />
   <hr />
 
@@ -304,7 +362,7 @@
 <strong>Personal Legal Procedures</strong><br/><br/>
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Deed Polls (Name Charge)"
   />
   <label for="Deed Polls (Name Charge)">
@@ -314,7 +372,7 @@
 
 <!-- ////////////// -->
 <!-- /////////////////////// -->
-  <input type="checkbox" id="practiceArea" name="Notary Public" />
+  <input type="checkbox" id="helpArea" name="Notary Public" />
   <label for="Notary Public"> Notary Public</label><br /><br />
   <hr />
 
@@ -322,7 +380,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Drafting IOU/Debt Acknowledgement"
   />
   <label for="Drafting IOU/Debt Acknowledgement">
@@ -331,7 +389,7 @@
   <hr />
 <!-- //////////////////// -->
 <!-- /////////////////////// -->
-  <input type="checkbox" id="practiceArea" name="Bankruptcy" />
+  <input type="checkbox" id="helpArea" name="Bankruptcy" />
   <label for="Bankruptcy"> Bankruptcy</label><br /><br />
   <hr />
 
@@ -339,7 +397,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Commissioner for Oaths"
   />
   <label for="Commissioner for Oaths">
@@ -351,7 +409,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Power of Attorney"
   />
   <label for="Power of Attorney"> Power of Attorney</label
@@ -362,7 +420,7 @@
 <!-- /////////////////////// -->
 <br />
 <strong>Civil Claims</strong><br/><br/>
-  <input type="checkbox" id="practiceArea" name="Debt Recovery" />
+  <input type="checkbox" id="helpArea" name="Debt Recovery" />
   <label for="Debt Recovery"> Debt Recovery</label><br /><br />
   <hr />
 
@@ -370,7 +428,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Employment Disputes"
   />
   <label for="Employment Disputes"> Employment Disputes</label
@@ -381,7 +439,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Medical Negligence"
   />
   <label for="Medical Negligence"> Medical Negligence</label
@@ -392,7 +450,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Civil Litigation"
   />
   <label for="Civil Litigation"> Civil Litigation</label
@@ -403,7 +461,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Copyright Infringement"
   />
   <label for="Copyright Infringement">
@@ -415,7 +473,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Personal Injury"
   />
   <label for="Personal Injury"> Personal Injury</label
@@ -424,7 +482,7 @@
 
 <!-- ////////////////// -->
 <!-- /////////////////////// -->
-  <input type="checkbox" id="practiceArea" name="Defamation" />
+  <input type="checkbox" id="helpArea" name="Defamation" />
   <label for="Defamation"> Defamation</label><br /><br />
   <hr />
 
@@ -432,13 +490,13 @@
 <!-- /////////////////////// -->
 <br />
 <strong>Housing</strong><br/><br/>
-  <input type="checkbox" id="practiceArea" name="MCST Disputes" />
+  <input type="checkbox" id="helpArea" name="MCST Disputes" />
   <label for="MCST Disputes"> MCST Disputes</label><br /><br />
   <hr />
 
 <!-- ////////////////// -->
 <!-- /////////////////////// -->
-  <input type="checkbox" id="practiceArea" name="Conveyancing" />
+  <input type="checkbox" id="helpArea" name="Conveyancing" />
   <label for="Conveyancing"> Conveyancing</label><br /><br />
   <hr />
 
@@ -446,7 +504,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Landlord-Tenant Disputes"
   />
   <label for="Landlord-Tenant Disputes">
@@ -458,7 +516,7 @@
 <!-- /////////////////////// -->
   <input
     type="checkbox"
-    id="practiceArea"
+    id="helpArea"
     name="Renovation Claims"
   />
   <label for="Renovation Claims"> Renovation Claims</label
@@ -479,14 +537,118 @@
                   name="fee"
                   placeholder="$ Round off to nearest whole number"
                   size="30"
-                />
-
+                  oninput="updateHelpArea(0, this.value)" 
+                />  
+                <!-- is the index 0?  -->
               </div>
-
             </div>
+            <script>
+            let username=document.getElementById('username');
+            let firstName=document.getElementById('firstName');
+            let lastName=document.getElementById('lastName');
+            let age=document.getElementById('age');
+            let gender;
+            let CoName=document.getElementById('CoName');
+            let personalNo=document.getElementById('personalNo');
+            let personalEmail=document.getElementById('personalEmail');
+            let wait=document.getElementById('wait');
+            let court=document.getElementById('court'); let abuse=document.getElementById('abuse');
+            
+            function update(val, type){
+              if (type=='username'){
+                username=val;
+                var jsUsername = document.createElement("input");
+                jsUsername.type = "hidden";
+                jsUsername.value = username;
+                jsUsername.name = "jsUsername";
+                ele.appendChild(jsUsername);
+              }
+              else if (type=='firstName'){
+                firstName=val;
+                var jsFirstName = document.createElement("input");
+                jsFirstName.type = "hidden";
+                jsFirstName.value = firstName;
+                jsFirstName.name = "jsFirstName";
+                ele.appendChild(jsFirstName);
+              }
+              else if (type=='lastName'){
+                lastName=val;
+                var jsLastName = document.createElement("input");
+                jsLastName.type = "hidden";
+                jsLastName.value = lastName;
+                jsLastName.name = "jsLastName";
+                ele.appendChild(jsLastName);
+              }
+              else if (type=='age'){
+                age=val;
+                var jsAge = document.createElement("input");
+                jsAge.type = "hidden";
+                jsAge.value = age;
+                jsAge.name = "jsAge";
+                ele.appendChild(jsAge);
+              }
+              else if (type=='gender'){
+                gender=val;
+                var jsGender = document.createElement("input");
+                jsGender.type = "hidden";
+                jsGender.value = gender;
+                jsGender.name = "jsGender";
+                ele.appendChild(jsGender);
+              }
+              else if (type=='CoName'){
+                CoName=val;
+                var jsCoName = document.createElement("input");
+                jsCoName.type = "hidden";
+                jsCoName.value = CoName;
+                jsCoName.name = "jsCoName";
+                ele.appendChild(jsCoName);
+              }
+              else if (type=='personalNo'){
+                personalNo=val;
+                var jsPersonalNo = document.createElement("input");
+                jsPersonalNo.type = "hidden";
+                jsPersonalNo.value = personalNo;
+                jsPersonalNo.name = "jsPersonalNo";
+                ele.appendChild(jsPersonalNo);
+              }
+              else if (type=='personalEmail'){
+                personalEmail=val;
+                var jsPersonalEmail = document.createElement("input");
+                jsPersonalEmail.type = "hidden";
+                jsPersonalEmail.value = personalEmail;
+                jsPersonalEmail.name = "jsPersonalEmail";
+                ele.appendChild(jsPersonalEmail);
+              }
+              else if (type=='wait'){ 
+                wait=val;
+                var jsWait = document.createElement("input");
+                jsWait.type = "hidden";
+                jsWait.value = wait;
+                jsWait.name = "jsWait";
+                ele.appendChild(jsWait);
+              }
+              else if (type=='court'){
+                court=val;
+                var jsCourt = document.createElement("input");
+                jsCourt.type = "hidden";
+                jsCourt.value = court;
+                jsCourt.name = "jsCourt";
+                ele.appendChild(jsCourt);
+              }
+              else if (type=='abuse'){ //WHY RED BRACKETS??
+                abuse=val;
+                var abuse = document.createElement("input");
+                abuse.type = "hidden";
+                abuse.value = abuse;
+                abuse.name = "abuse";
+                ele.appendChild(abuse);
+              }
+            }
+          </script>
+            <input type="submit" value="Save Profile" id="save" />
         </form>
 
-    <input type="submit" value="Save Profile" id="save" />
+    
     
       <!-- include php if needed -->
     
