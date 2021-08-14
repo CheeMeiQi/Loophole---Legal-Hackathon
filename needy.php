@@ -483,6 +483,6 @@
             </div>
         </form>
 
-    <input type="submit" value="Submit" id="submit" />
+    <input type="submit" value="Refer me a lawyer" id="submit" />
   </body>
 </html>
