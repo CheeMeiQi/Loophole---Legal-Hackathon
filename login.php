@@ -108,13 +108,25 @@
         <h1 class="fillblank">Login to access your account</h1>
             <div id="container">
                 <h2 class="title">Login</h2>
-                <input type="text" name="email" id="email" placeholder="Email">
+                <input type="text" name="uid" id="email" placeholder="Username/Email">
                 <input type="password" name="pwd" id="pwd" placeholder="Password"> 
                 <a href="forgetpwd.php" style="font-family: 'Montserrat', sans-serif; font-size: 15px;">Forget password?</a>
                 <button type="submit" name="login" id="loginbtn">Login</button>
                 <h4 class="question">Do not have login details? Contact your admin to register.</h4>
             </div>
-        </form>
+            </form>
+            <!-- Error handling -->
+		<?php
+			if (isset($_GET["error"])) {
+				if ($_GET["error"] == "emptyinput") {
+					echo "<p>Fill in all fields!</p>";
+				}
+				else if ($_GET["error"] == "wronglogin") {
+					echo "<p>Incorrect login info!</p>";
+				}
+			}
+		?>
+    
     </body>
  
 </html>

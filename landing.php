@@ -248,7 +248,7 @@
 
         <div id="head"></div>
         <div id="headtext"></div>
-        <h3 class="brandname">*Brand Name*</h3>
+        <h3 class="brandname">LegalMatch</h3>
         <div id="white1">
             <h2 class="one">What would you like to do?</h2>
             <div id="circle1" onclick="indivRegister();"></div>
