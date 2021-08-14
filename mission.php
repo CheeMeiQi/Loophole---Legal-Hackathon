@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,18 +15,40 @@
       href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
       rel="stylesheet"
     />
-    <title>Brand name</title>
+    <title>Legal Match</title>
   </head>
 
   <body>
+    <!-- linking pages -->
+    <script>
+      function overview() {
+        //for "I Need Assistance"
+        document.getElementById("button1").style.backgroundColor = "#58A4B0";
+        document.getElementById("button1").style.transitionDelay = "1s";
+        window.location.href = "./overview.php";
+      }
+      function landing() {
+        //for "Reach out to us today"
+        document.getElementById("button2").style.backgroundColor = "#58A4B0";
+        document.getElementById("button2").style.transitionDelay = "1s";
+        window.location.href = "./landing.php";
+      }
+    </script>
+
     <div id="titleStyle">
-      <h1>Insert brand name and logo</h1>
+      <h1 style="font-size: 50px; margin-left: 3%">Legal Match</h1>
     </div>
 
     <div id="container1">
-      <h2>Legal Service</h2>
-      <button id="button1">I Need Help</button>
-      <button id="button2">Reach out to us today!</button>
+      <h2>In need of legal assistance?</h2>
+      <p>
+        Simply click below to find out how you can set up a profile to access
+        our database today!
+      </p>
+      <br />
+      <br />
+      <button id="button1" onclick="overview()">I Need Assistance</button>
+      <button id="button2" onclick="landing()">Reach out to us today!</button>
     </div>
 
     <div id="container2">
@@ -46,61 +69,63 @@
       <p>
         We want to provide every individual who is in need of legal assistance
         with the best lawyer, at the best price. Navigating the legal system is
-        a daunting task for anyone to embark upon alone. Here at
-        <strong>[insert name]</strong>, we also aim to ease one’s journey by
-        addressing challenges that they face, like lengthy waiting times and
-        rejection by legal aid schemes. We believe that no one should fall
-        through the cracks.
+        a daunting task for anyone to embark upon alone. Here at Legal Match, we
+        also aim to ease one’s journey by addressing challenges that they face,
+        like lengthy waiting times and rejection by legal aid schemes. We
+        believe that no one should fall through the cracks.
       </p>
     </div>
 
-    <img
-      id="image"
-      src="image3.jpg"
-      alt="businessman reading contract"
-    />
+    <img id="image" src="image3.jpg" alt="businessman reading contract" />
 
     <div id="image"></div>
 
     <div id="container4">
       <h2 style="text-align: center">Vision</h2>
       <p>
-        <strong>[Insert name]</strong> wants to pave the way for increased
-        access to justice in Singapore. We believe that no one should be denied
-        legal assistance simply because they lack the means to obtain it, and
-        that the legal system should be easier for laypersons to navigate.
+        Legal Match wants to pave the way for increased access to justice in
+        Singapore. We believe that no one should be denied legal assistance
+        simply because they lack the means to obtain it, and that the legal
+        system should be easier for laypersons to navigate.
       </p>
     </div>
 
-    <div id="servicesStyle">
-      <h1>Services</h1>
+    <div id="benefitStyle">
+      <h1>Benefits of Legal Match</h1>
     </div>
 
     <div id="inline">
-      <div id="service1">
-        <h3>Service 1</h3>
+      <div id="benefit1">
+        <h3>Efficient</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-          numquam vitae necessitatibus vel sit delectus aperiam quidem? Nisi
-          facere fugiat impedit ratione a quam vero, quod enim ullam odio culpa.
+          Individuals in need can find a lawyer perfectly suited to their needs
+          and budget as fast as possible.
         </p>
       </div>
 
-      <div id="service2">
-        <h3>Service 2</h3>
+      <div id="benefit2">
+        <h3>Highly Accessible</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-          numquam vitae necessitatibus vel sit delectus aperiam quidem? Nisi
-          facere fugiat impedit ratione a quam vero, quod enim ullam odio culpa.
+          Individuals rejected by existing legal aids schemes no longer need to
+          fret - our platform ensures featured means testing that is not overly
+          stringent.
         </p>
       </div>
 
-      <div id="service3">
-        <h3>Service 3</h3>
+      <div id="benefit3">
+        <h3>User-friendly</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-          numquam vitae necessitatibus vel sit delectus aperiam quidem? Nisi
-          facere fugiat impedit ratione a quam vero, quod enim ullam odio culpa.
+          Users simply need to fill in basic information. Our algorithm does the
+          heavy-lifting, all while protecting confidentiality.
+        </p>
+      </div>
+
+      <div id="benefit4">
+        <h3>Refined</h3>
+        <p>
+          The platform is dynamic and refined, taking into account real-world
+          concerns, even identifying more urgent cases that might need more
+          immediate attention.
         </p>
       </div>
     </div>

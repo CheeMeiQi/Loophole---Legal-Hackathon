@@ -29,7 +29,7 @@ p {
 
 #container1 {
   position: relative;
-  top: 263px;
+  top: 205px;
   width: 50%;
   height: auto;
   color: white;
@@ -128,7 +128,7 @@ p {
   padding: 30px;
 }
 
-#servicesStyle {
+#benefitStyle {
   position: absolute;
   width: 100%;
   height: auto;
@@ -151,7 +151,7 @@ p {
   /* margin-top: 50px; */
 }
 
-#service1 {
+#benefit1 {
   position: relative;
   top: 150px;
   width: 20%;
@@ -165,7 +165,7 @@ p {
   padding: 30px;
 }
 
-#service2 {
+#benefit2 {
   position: relative;
   top: 150px;
   /* left: 350px; */
@@ -180,7 +180,23 @@ p {
   padding: 30px;
 }
 
-#service3 {
+#benefit3 {
+  position: relative;
+  top: 150px;
+  /* left: 700px; */
+  width: 20%;
+  height: auto;
+  color: #2d0320;
+  background: #f0ccbc;
+  margin: 5px;
+  border-radius: 30px;
+  padding-top: 10px;
+  text-align: justify;
+  padding: 30px;
+  float: left;
+}
+
+#benefit4 {
   position: relative;
   top: 150px;
   /* left: 700px; */
