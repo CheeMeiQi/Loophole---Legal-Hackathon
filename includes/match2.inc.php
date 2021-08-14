@@ -377,7 +377,23 @@
         //TODO: possible for transcript, profilepic and phoneNum to be null
         //TODO: need to figure out how exactly we will be uploading transcript and profile pic into mysql
         //TODO: $areasArr will be a array that has 34 spaces with -1. The slot will be updated with the beneficiary selects it
-        $bInsert = "INSERT INTO beneficiaries(firstName, lastName, age, gender, brief, phoneNum, email, transcript, profilePic, waitPeriod, court, abuse, budget, reqLawyerId, finalLawyerId, caseDoneConfirm) VALUES ($firstName, $lastName, $age, $gender, $brief, $phoneNum, $email, $transcript, $profilePic, $waitPeriod, $court, $abuse, $budget, -1, -1, 0);";
+
+        // Supposed to upload the transcript
+        // URL: https://www.youtube.com/watch?v=3OUTgnaezNY
+        $transcript = rand(1000, 10000) . "-" . $_FILES["file"]["name"];
+        $tName = $_FILES["files"]["tmp_name"];
+        $uplodesDir = '../transcripts';
+        move_uploaded_file($tName, $uplodesDir."/".$transcript);
+
+        $profilePicName = rand(1000, 10000). "-" . $_FILES['profilePic']['name'];
+        $target = '../images/' . $profilePicName;
+        if (move_uploaded_file($_FILES['profilePic']['tmp_name'], $target)) {
+
+        } else {
+            
+        }
+
+        $bInsert = "INSERT INTO beneficiaries(firstName, lastName, age, gender, brief, phoneNum, email, transcript, profilePic, waitPeriod, court, abuse, budget, reqLawyerId, finalLawyerId, caseDoneConfirm) VALUES ($firstName, $lastName, $age, $gender, $brief, $phoneNum, $email, '$transcript', '$profilePicName', $waitPeriod, $court, $abuse, $budget, -1, -1, 0);";
 
         $helpAreasInsert = "INSERT INTO helpAreas(crimDefence, commCrime, magComplaint, cyberCrime, harassment, divorce, syariahDivorce, divorceInEng, preNuptial, personalProt, adoption, lpa, probate, wills, muslimWills, mentalCap, trusts, deedPolls, notary, iou, bankruptcy, commissioner, powAttorney, debtRecovery, emplyDisputes, medNeglce, civilLit, copyright, personalInjury, defamation, mcst, conveyancing, landlord, renovation) VALUES ($areasArr[0], $areasArr[1], $areasArr[2], $areasArr[3], $areasArr[4], $areasArr[5], $areasArr[6], $areasArr[7], $areasArr[8], $areasArr[9], $areasArr[10], $areasArr[11], $areasArr[12], $areasArr[13], $areasArr[14], $areasArr[15], $areasArr[16], $areasArr[17], $areasArr[18], $areasArr[19], $areasArr[20], $areasArr[21], $areasArr[22], $areasArr[23], $areasArr[24], $areasArr[25], $areasArr[26], $areasArr[27], $areasArr[28], $areasArr[29], $areasArr[30], $areasArr[31], $areasArr[32], $areasArr[33]);";
 
@@ -399,5 +415,15 @@
     }
 
     // Edit profile functions?
+
+    // To display profile pic
+    $profilePic=$rowgetuser['profilePic'];
+    if($profilePic=="" || $profilePic == null){
+        echo "<div><img src=\"img/user.png\" id=\"profilepic\" alt=\"profilepic\" width=\"250px\" height=\"250px\"></div>";
+    }
+    else{
+        echo "<div><img src=\"userprofilepic/$profilePic\" id=\"profilepic\" alt=\"profilepic\" width=\"250px\" height=\"250px\"></div>";
+    }
+
     ?>
 </html>
