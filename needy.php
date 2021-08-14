@@ -36,7 +36,7 @@
         <!-- for is to pair with input id -->
         <!-- name is for javascript -->
         <!-- textarea is for a block of text -->
-        <form id="needyProfile" action="../includes/needyProfile.php" method="POST">
+        <form id="needyProfile" action="../Loophole---Legal-Hackathon/includes/needyProfile.inc.php" method="POST">
         <script>
           var ele = document.getElementById("needyProfile");
         </script>
@@ -97,7 +97,7 @@
             </div>
 
             <h4>Contact Information</h4>
-            <div id="contactInfo">
+            <!-- <div id="contactInfo">
               <label for="CoName">Company Name</label>
               <div>
                 <input
@@ -107,7 +107,7 @@
                   placeholder="Enter company name"
                   oninput="update(this.value, 'CoName')"
                 />
-              </div>
+              </div> -->
 
               <label for="personalNo">Personal Number</label>
               <div>
@@ -132,6 +132,14 @@
               </div>
             </div>
 
+            <h4>Brief</h4>
+            <div id="brief">
+              <label for="brief"
+                > Brief statement of your case</label></br>
+                <textarea name="brief" id="brief" cols="40" rows="10" oninput="update(this.value, 'brief')"></textarea>
+            </div>
+
+
             <h4>Wait Period</h4>
             <div id="waitPeriod">
               <label for="wait"
@@ -151,9 +159,9 @@
                 Have court proceedings been commenced in your case? 
               </label><br />
 
-              <input type="radio" id="court" name="court" oninput="update('1', 'court')"/>
+              <input type="radio" id="court" name="court" oninput="update(1, 'court')"/>
               <label for="yes">Yes</label>
-              <input type="radio" id="court" name="court" oninput="update('0', 'court')" />
+              <input type="radio" id="court" name="court" oninput="update(0, 'court')" />
               <label for="no">No</label>
               
               
@@ -161,12 +169,12 @@
 
             <div id="abuse">
               <label for="abuse">
-              Are you facing physical/mental abuse?
+              Are you facing any physical/mental abuse?
               </label><br />
 
-              <input type="radio" id="court" name="court" oninput="update('1', 'abuse')"/>
+              <input type="radio" id="abuse" name="abuse" oninput="update(1, 'abuse')"/>
               <label for="yes">Yes</label>
-              <input type="radio" id="court" name="court" oninput="update('0', 'abuse')" />
+              <input type="radio" id="abuse" name="abuse" oninput="update(0, 'abuse')" />
               <label for="no">No</label>
               
             </div>
@@ -183,7 +191,7 @@
               <script>
                 var helpArea = [];
                 for (let i=0; i<34; i++){
-                  pracArea.push(0);
+                  helpArea.push(0);
                 }
                 function updateHelpArea(index, budget){
                   helpArea[index] = budget;
@@ -548,7 +556,8 @@
             let lastName=document.getElementById('lastName');
             let age=document.getElementById('age');
             let gender;
-            let CoName=document.getElementById('CoName');
+            let brief=document.getElementById('brief');
+            //let CoName=document.getElementById('CoName');
             let personalNo=document.getElementById('personalNo');
             let personalEmail=document.getElementById('personalEmail');
             let wait=document.getElementById('wait');
@@ -596,14 +605,22 @@
                 jsGender.name = "jsGender";
                 ele.appendChild(jsGender);
               }
-              else if (type=='CoName'){
-                CoName=val;
-                var jsCoName = document.createElement("input");
-                jsCoName.type = "hidden";
-                jsCoName.value = CoName;
-                jsCoName.name = "jsCoName";
-                ele.appendChild(jsCoName);
+              else if (type=="brief") {
+                brief=val;
+                var jsBrief = document.createElement("input");
+                jsBrief.type = "hidden";
+                jsBrief.value = brief;
+                jsBrief.name = "jsBrief";
+                ele.appendChild(jsBrief);
               }
+              //else if (type=='CoName'){
+                // CoName=val;
+                // var jsCoName = document.createElement("input");
+                // jsCoName.type = "hidden";
+                // jsCoName.value = CoName;
+                // jsCoName.name = "jsCoName";
+                // ele.appendChild(jsCoName);
+              //}
               else if (type=='personalNo'){
                 personalNo=val;
                 var jsPersonalNo = document.createElement("input");
@@ -646,14 +663,14 @@
               }
             }
           </script>
-            <input type="submit" value="Save Profile" id="save" />
+            <input type="submit" value="Save Profile" id="save"/>
         </form>
 
     
     
       <!-- include php if needed -->
     
-    <form method = "post" action="../Loophole---Legal-Hackathon/includes/match1.inc.php">
+    <form method = "post" action="../includes/match1.inc.php">
         <input type = "submit" name = "refer" value = "Refer me a lawyer">
     </form>
   </body>
