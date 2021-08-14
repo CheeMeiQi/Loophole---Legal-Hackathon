@@ -78,6 +78,47 @@
                 border-color: black;
                 font-weight: bold;
             }
+            #email{
+                font-family: 'Montserrat', sans-serif;
+                font-size: 18px;
+                color: black;
+                background-color: #81BAC4;
+                border-style: solid;
+                border-color: white;
+                border-width: 2px;
+                border-radius:5px;
+                width: 400px;
+                height: 50px;
+            }
+            #pwd{
+                font-family: 'Montserrat', sans-serif;
+                font-size: 18px;
+                color: black;
+                background-color: #81BAC4;
+                border-style: solid;
+                border-color: white;
+                border-width: 2px;
+                border-radius: 5px;
+                width: 400px;
+                height: 50px;
+                margin-top: 10px;
+            }
+            #cfm_pwd{
+                font-family: 'Montserrat', sans-serif;
+                font-size: 18px;
+                color: black;
+                background-color: #81BAC4;
+                border-style: solid;
+                border-color: white;
+                border-width: 2px;
+                border-radius: 5px;
+                width: 400px;
+                height: 50px;
+                margin-top: 10px;
+            }
+            #email:hover, #pwd:hover, #cfm_pwd:hover{
+                background-color: #abf2ff;
+            }
         </style>
     </head>
 
@@ -87,17 +128,43 @@
             window.location.href="../landing.php";
         }
     </script>
+
         <div id="triangleright1"></div>
         <div id = "triangleright2"></div>
         <form action="includes/registerNeedy.inc.php" method="POST">
         <h1 class="fillblank">Individual Registration</h1>
             <div id="container">
-                <input type="text" name="email" id="email" placeholder="Email">
-                <input type="password" name="pwd" id="pwd" placeholder="Password"> 
                 <h2 class="title">Register for an account</h2>
+                <input type="text" name="email" id="email" placeholder="Email">
+                <input type="password" name="pwd" id="pwd" placeholder="Password">    
+                <input type="password" name="cfm_pwd" id="cfm_pwd" placeholder="Re-type password">       
                 <button type="submit" name="login" id="registerbtn">Register yourself now</button>
             </div>
         </form>
         <button type="button" id="back" onclick="main();">Back to main page</button>
     </body>
+   
+    <!-- Error handling -->
+		<?php
+			if (isset($_GET["error"])) {
+				if ($_GET["error"] == "emptyinput") {
+					echo "<p>Fill in all fields!</p>";		
+				}
+				else if ($_GET["error"] == "invaliduid") {
+					echo "<p>Fill in all fields!</p>";
+				}
+				else if ($_GET["error"] == "invalidemail") {
+					echo "<p>Fill in a valid email address!</p>";
+				}
+				else if ($_GET["error"] == "passwordsdontmatch") {
+					echo "<p>Passwords don't match!</p>";
+				}
+				else if ($_GET["error"] == "stmtfailed") {
+					echo "<p>Something went wrong, try again!</p>";
+				}
+				else if ($_GET["error"] == "usernametaken") {
+					echo "<p>Username already taken!</p>";
+				}
+			}
+		?>
 </html>
