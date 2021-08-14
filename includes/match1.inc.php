@@ -8,7 +8,7 @@
 ?>
 <!DOCTYPE html>
 <html>
-<form action="includes/match2.inc.php" method="POST" id="ele">
+<form action="../includes/match2.inc.php" method="POST" id="ele">
 <script>
     <?php
         echo 'match();';
@@ -19,7 +19,8 @@
     function match() {
          console.log("I make it to match"); //TEST
         // Step 1: Sort beneficiaries according to urgency score (datetime diff + categories) (put in an array)
-        let currB, currCourt, currAbuse, currScore, tempArr, bArr;
+        let currB, currCourt, currAbuse, currScore, tempArr;
+        let bArr = [];
         <?php
             $beneficiaries = "SELECT * FROM beneficiaries WHERE reqLawyerId = -1"; // IF reqLawyerId = -1 means beneficiary is not currently requesting any lawyers
 
@@ -47,8 +48,11 @@
                             $daysWaited = (int) $interval->format('%a');
                             $currScore += $daysWaited;
                         }
-                        echo "tempArr = [$currB, $currScore];";
-                        echo "bArr.push(tempArr);";
+                        echo "currB = $currB;";
+                        echo "currScore = $currScore;";
+                        //$tempArr = array($currB, $currScore);
+                        //echo "tempArr = json_encode($tempArr);";
+                        echo "bArr.push([currB, currScore]);";
                     }
                 }
             }
