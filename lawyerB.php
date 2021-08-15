@@ -32,8 +32,8 @@
     </script>
 
     <div id="titleStyle">
-      <h1>Hello [insert profile name]!</h1>
-      <h2>Company: [insert company name]</h2>
+      <h1>Hello!</h1>
+      <!-- <h2>Company: [insert company name]</h2> -->
       <p>
         This is your profile page. You can see the progress you've made with
         your work and manage your clients using this dashboard.
